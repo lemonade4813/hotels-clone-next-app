@@ -43,3 +43,20 @@
 .reservationDetail{
     display: none;
 }
+
+.banner {
+    font-size : 90px;
+    width: 300px;
+    height: 500px;
+    background-image: url('/waterpark.jpg');
+    background-size: 100% auto; /* 가로를 꽉 채우고 세로는 비율 유지 */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    flex-direction : column;
+    align-items : center;
+}

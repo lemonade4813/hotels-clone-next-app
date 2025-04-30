@@ -1,0 +1,42 @@
+
+.container{
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: pink;
+    overflow: hidden;
+    padding: 40px 0;
+    box-sizing: border-box;
+}
+
+.carouselItems {
+    display: flex;
+    justify-Content : space-between;
+    gap : 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.carouselItems::-webkit-scrollbar{
+    display:  none;
+}
+
+.carouselButton{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-Index: 1,
+
+}
