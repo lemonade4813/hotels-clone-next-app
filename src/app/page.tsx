@@ -1,5 +1,3 @@
-'use client'
-
 import Image from "next/image";
 import logo from "@/app/assets/logo.svg";
 import commcenter from "@/app/assets/commcenter.svg";
@@ -8,17 +6,12 @@ import styles from "@/app/Home.module.css";
 import position from "@/app/assets/position.svg";
 import calendar from "@/app/assets/calendar.svg";
 import person from "@/app/assets/person.svg";
-import banner from "@/app/assets/banner.webp"
-import recommend1 from "@/app/assets/recommend1.jpg";
-import recommend2 from "@/app/assets/recommend2.jpg";
-import recommend3 from "@/app/assets/recommend3.jpg";
+import banner from "@/app/assets/banner.webp";
 import CarouselContainer from "./components/carousel-container";
 import RoomTypeCard from "./components/room-type-card";
-import SuggestionMenu from "./components/suggestion-memu";
 import NoticeDiscount from "./components/notice-discount";
 
 export default function Home() {
-  
   const roomtypes = 
                 [{src : '/resort.jpg', name : '리조트'}, 
                  {src : '/waterpark.jpg', name : '워터파크'},
@@ -27,13 +20,6 @@ export default function Home() {
                  {src : '/pool.jpg', name : '수영장'},
                  {src : '/pool.jpg', name : '수영장'},
                 ]
-  
-  const suggestionMenu = [
-    {src : recommend1, title : '10박을 숙박하면 리워드 1박!', name : '숙소 검색'},
-    {src : recommend2, title : '계획 변경에도 안심! 언제든지 취소할 수 있는 유연한 숙소를 예약하세요', name : '지금 예약'},
-    {src : recommend3, title : '호텔을 나란히 비교에 나에게 맞는곳을 찾아보세요', name : '호텔 비교'}
-  ]
-
   return (
     <>
       <header className={styles.header}>
@@ -153,14 +139,17 @@ export default function Home() {
           </div>
         </div>
         <NoticeDiscount/>
-        <div style={{display : 'flex', justifyContent : 'space-between', width : '1200px', gap : '40px', marginTop : '20px'}}>
-          {suggestionMenu.map((menu) => <SuggestionMenu key={menu.name} {...menu}/>)}
-        </div>
         <div style={{ width: '1200px' , overflow : 'hidden'}}>
           <p>마음에 꼭 맞는 새로운 숙소 찾기</p>
         </div>        
         <CarouselContainer>
-          {roomtypes.map(((rt, index) => <RoomTypeCard key={index} src={rt.src} name={rt.name}/>))}
+          {roomtypes.map(((rt, index) => 
+            <RoomTypeCard 
+              key={index} 
+              src={rt.src} 
+              name={rt.name}
+            />)
+          )}
         </CarouselContainer>
       </main>
     </>
