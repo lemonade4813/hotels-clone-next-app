@@ -1,0 +1,21 @@
+.container{
+    border-radius : 16px;
+    background-color : #0c0e1c;
+    height : 80px;
+    width : 1200px;
+    margin-top : 30px;
+    display : flex;
+    align-items : center;
+    justify-content : space-between;
+    padding : 16px;
+    gap : 20px;
+}
+
+.text{
+    color : #fff;
+    flex : 1;
+}
+
+.button{
+    width : 100px;
+}

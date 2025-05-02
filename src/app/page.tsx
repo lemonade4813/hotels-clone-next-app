@@ -10,6 +10,7 @@ import banner from "@/app/assets/banner.webp";
 import CarouselContainer from "./components/carousel-container";
 import RoomTypeCard from "./components/room-type-card";
 import NoticeDiscount from "./components/notice-discount";
+import SuggestionMenu from "./components/suggestion-memu";
 
 export default function Home() {
   const roomtypes = 
@@ -139,6 +140,7 @@ export default function Home() {
           </div>
         </div>
         <NoticeDiscount/>
+        <SuggestionMenu/>
         <div style={{ width: '1200px' , overflow : 'hidden'}}>
           <p>마음에 꼭 맞는 새로운 숙소 찾기</p>
         </div>        

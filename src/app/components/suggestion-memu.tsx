@@ -16,9 +16,9 @@ export default function SuggestionMenu() {
     {src : recommend3, title : '호텔을 나란히 비교에 나에게 맞는곳을 찾아보세요', name : '호텔 비교'}
   ]
   return (
-    <div style={{display : 'flex', justifyContent : 'space-between', width : '1200px', gap : '40px', marginTop : '20px'}}>
-    {suggestionMenu.map((menu) => <SuggestionMenu key={menu.name} {...menu}/>)}
-  </div>
+    <div className={styles.menuContainer}>
+      {suggestionMenu.map((menu) => <SuggestionMenuItem key={menu.name} {...menu}/>)}
+    </div>
    
   )
 }
@@ -26,15 +26,15 @@ export default function SuggestionMenu() {
 const SuggestionMenuItem = ({src, title, name} : {src : StaticImageData, title : string, name : string}) => {
 
   return(
-    <div className={styles.container}>
-    <div className={styles.suggestionMenuLeft}>
-        <p>{title}</p>
-        <div style={{display : 'flex', alignItems : 'center'}}>
-          <Link href="">{name}</Link>
-          <Image src={arrow} alt=""/>
-        </div>
-    </div>
-    <Image src={src} alt="" className={styles.image}/>
+    <div className={styles.itemContainer}>
+      <div className={styles.suggestionMenuLeft}>
+          <p>{title}</p>
+          <div style={{display : 'flex', alignItems : 'center'}}>
+            <Link href="">{name}</Link>
+            <Image src={arrow} alt=""/>
+          </div>
+      </div>
+      <Image src={src} alt="" className={styles.image}/>
    </div>
   )
 

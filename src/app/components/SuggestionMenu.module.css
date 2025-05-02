@@ -1,4 +1,4 @@
-.container {
+.itemContainer {
     display : flex;
     flex : 1;
 }
@@ -15,4 +15,12 @@
 .image{
     border-top-right-radius: 16px;
     border-bottom-right-radius: 16px;
+}
+
+.menuContainer {
+    display : flex;
+    justify-content : space-between;
+    width : 1200px;
+    gap : 40px;
+    margin-top : 20px;
 }
