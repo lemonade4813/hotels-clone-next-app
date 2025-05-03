@@ -1,0 +1,64 @@
+.container{
+    max-width: 1200px;
+    width: 100%;
+    margin : 0 auto;
+
+}
+
+.searchOption{
+    width : 100%;
+    display : flex;
+    flex : 1;
+    gap : 20px;
+    padding : 20px;
+    height  : 60px;   
+
+}
+
+.searchOptionContainer{
+    display : flex;
+    align-items : center;
+    box-sizing : border-box;
+
+}
+
+.searchOptionItem{
+    flex : 1;
+    border-radius : 12px;
+    display : flex;
+    align-items : center;
+    gap : 20px;
+    padding : 8px;
+    border : 1px solid #000;
+
+}
+
+.searchButton {
+    border-radius : 999px;
+    background-color : #1668e3;
+    border : none;
+    width : 40px;
+    height : 40px;
+    display : flex;
+    align-items : center;
+    justify-content : center;
+}
+
+
+.content{
+
+    display : flex;
+    height : 300px;
+}
+
+.asideContainer{
+    width : 300px;
+    background-color : #ffffe0;
+}
+
+.mainContainer{
+
+    flex : 1;
+    background-color : #c8facb;
+
+}
