@@ -4,19 +4,20 @@ import position from "@/app/assets/position.svg";
 import calendar from "@/app/assets/calendar.svg";
 import person from "@/app/assets/person.svg";
 import banner from "@/app/assets/banner.webp";
-import CarouselContainer from "./components/carousel-container";
-import RoomTypeCard from "./components/room-type-card";
-import NoticeDiscount from "./components/notice-discount";
-import SuggestionMenu from "./components/suggestion-memu";
+import CarouselContainer from "./components/CarouselContainer";
+import RoomTypeCard from "./components/RoomTypeCard";
+import NoticeDiscount from "./components/NoticeDiscount";
+import SuggestionMenu from "./components/SuggestionMemu";
+import Link from "next/link";
 
 export default function Home() {
   const roomtypes = 
-                [{src : '/resort.jpg', name : '리조트'}, 
-                 {src : '/waterpark.jpg', name : '워터파크'},
-                 {src : '/oceanview.jpg', name : '바다전망'},
-                 {src : '/spa.jpg', name : '스파'},
-                 {src : '/pool.jpg', name : '수영장'},
-                 {src : '/pool.jpg', name : '수영장'},
+                [{src : '/resort.jpg', name : '리조트', keyword : 'resort'}, 
+                 {src : '/waterpark.jpg', name : '워터파크', keyword : 'waterpark'},
+                 {src : '/oceanview.jpg', name : '바다전망', keyword : 'oceanview'},
+                 {src : '/spa.jpg', name : '스파', keyword : 'spa'},
+                 {src : '/pool.jpg', name : '수영장', keyword : 'pool'},
+                 {src : '/pool.jpg', name : '수영장', keyword : 'pool'},
                 ]
   return (
     <>
@@ -112,11 +113,14 @@ export default function Home() {
         </div>        
         <CarouselContainer>
           {roomtypes.map(((rt, index) => 
+          <Link href = {{pathname : `/search/${rt.keyword}`}}>
             <RoomTypeCard 
               key={index} 
               src={rt.src} 
               name={rt.name}
-            />)
+            />
+            </Link>
+          )
           )}
         </CarouselContainer>
       </main>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import localFont from 'next/font/local';
 import { ApolloWrapper } from "./ApolloWrapper";
-import Header from "./components/header";
+import Header from "./components/Header";
 
 const pretendard = localFont({src : './fonts/PretendardVariable.woff2',
                               variable : '--font-prentendard',
