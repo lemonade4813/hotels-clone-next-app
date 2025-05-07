@@ -11,6 +11,13 @@ import personSvg from "@/app/assets/person.svg";
 interface ISerchResult{
     name : string;
     direction : string;
+    city : string;
+    imgUrl : string;
+    rating : string;
+    isFullRefund : boolean;
+    costPrice : number;
+    salePrice : number;
+    totalPrice : number;
 }
 
 export default function SearchResult({ keyword } : { keyword : string}) {
@@ -19,7 +26,14 @@ export default function SearchResult({ keyword } : { keyword : string}) {
         query GetSearchResult($keyword: String) {
             result(keyword: $keyword) {
                 name
+                city
+                imgUrl
                 direction
+                rating
+                isFullRefund
+                costPrice
+                salePrice
+                totalPrice
             }
         }
     `
@@ -30,6 +44,22 @@ export default function SearchResult({ keyword } : { keyword : string}) {
     );
 
     const searchResult = data?.result ?? [];
+
+    const getCommentByRating = (rating : number) => {
+
+        if(rating >= 9.4){
+            return '최고에요'
+        }
+        else if(rating >= 9.0){
+            return '매우 훌륭해요'
+        }
+        else if(rating >= 8.4){
+            return '휼륭해요'
+        }
+        else{
+            return null;
+        }
+    }
 
     return(
         <div className={styles.container}>
@@ -63,16 +93,85 @@ export default function SearchResult({ keyword } : { keyword : string}) {
         </div>
         <div className={styles.content}>
             <div className={styles.asideContainer}>
+                <div>
+                    <p>숙박 시설 이름으로 검색</p>
+                    <input placeholder="예 : 메리어트" className={styles.searchField}/>
+                </div>
+                <div>
+                    <p>필터링 기준</p>
+                    <div>
+                        <p>인기 필터</p>
+                        <div>
+                            <div>
+                                <input type="checkbox"/>
+                                <label>바다 전망</label>
+                            </div>
+                            <div>
+                                <input type="checkbox"/>
+                                <label>스파</label>
+                            </div>
+                            <div>
+                                <input type="checkbox"/>
+                                <label>반려동물 동반 가능</label>
+                            </div>
+                            <div>
+                            <input type="checkbox"/>
+                                <label>반려동물 동반 가능</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
             <div className={styles.mainContainer}>
+            {searchResult?.map(result => 
+                <div key={result.name} 
+                     className={styles.hotelInfoContainer}>
+                    <Image src={result.imgUrl} 
+                        width={200} 
+                        height={200} 
+                        alt="호텔 이미지" 
+                        className={styles.hotelImage}/>
+                    <div className={styles.hotelInfoRight}>
+                        <div style={{display : 'flex',  boxSizing : 'border-box'}}>
+                        <div style={{width : '300px', padding : '10px'}}>
+                            <p style={{fontSize : '24px'}}>{result?.name}</p>
+                            <p>{result?.city}</p>
+                            {result.isFullRefund && <p style={{ color : 'green'}}>전액환불 가능</p>}
+                            <div style={{display : 'flex', alignItems :'center', gap : '10px'}}>
+                                <p className={styles.rating}>{result?.rating}</p>
+                                <p>{getCommentByRating(Number(result?.rating))}</p>
+                            
+                            </div>
+                        </div>
+                        <div className={styles.priceInfoWrapper}>
+                            <label htmlFor="compare"> <input id = "compare" type="checkbox"/>비교</label>
+                            <div className={styles.priceInfo}>
+                                <div>
+                                    <span className={styles.costPrice}>
+                                        ₩ {result.costPrice.toLocaleString()}
+                                    </span>
+                                    <span className={styles.salePrice}>
+                                        ₩ {result.salePrice.toLocaleString()}
+                                    </span>
+                                </div>
+                                <div>
+                                    <p>총 요금 : ₩ 
+                                        <span>
+                                            {result.totalPrice.toLocaleString()}
+                                        </span>
+                                    </p>
+                                    <p className={styles.taxInclude}>세금 및 수수료 포함</p>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
             </div>
-        </div>
-        {searchResult?.map(result => 
-            <div key={result.name}>
-                <p>{result?.name}</p>
-                <p>{result?.direction}</p>
-            </div>
-        )}
-        </div>
+        </div> 
+    </div>
     )
 }

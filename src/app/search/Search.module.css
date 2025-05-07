@@ -46,19 +46,86 @@
 
 
 .content{
-
     display : flex;
-    height : 300px;
 }
 
 .asideContainer{
     width : 300px;
     background-color : #ffffe0;
+    padding: 10px;
 }
 
 .mainContainer{
-
     flex : 1;
     background-color : #c8facb;
+    max-width: 800px;
+}
 
+.hotelInfoContainer{
+    display : flex; 
+    cursor : pointer; 
+    height : 200px; 
+    box-sizing : border-box;
+}
+
+.hotelImage{
+    border-top-left-radius : 24px; 
+    border-bottom-left-radius : 24px;
+}
+
+.hotelInfoRight{
+    border-top-right-radius : 24px; 
+    border-bottom-right-Radius : 24px;  
+    border : 1px solid #d3d3d3;
+    flex : 1;
+    padding : 10px;
+    box-sizing : border-box;
+}
+
+.rating{
+    background-color : purple;
+    border-radius : 8px; 
+    color : #FFF; 
+    height : 30px; 
+    line-height : 30px; 
+    width : 50px; 
+    text-align  : center;
+}
+
+.priceInfoWrapper{
+    display : flex;
+    flex-direction : column;
+    justify-content : space-around;
+    align-items : flex-end;
+    flex : 1
+}
+
+.priceInfo{
+    display : flex;
+    align-items : flex-end;
+    flex-direction : column;
+}
+
+.salePrice{
+    text-decoration : line-through;
+    font-size : 24px;
+
+}
+
+.costPrice{
+    margin-right : 10px;
+}
+
+.taxInclude{
+    font-size : 10px;
+    text-align : end;
+}
+
+.searchField{
+    background-image: url('../assets/search.svg');
+    height: 30px;
+    width: 80%;
+    border-radius: 12px;
+    border : 1px solid #d3d3d3;
+    padding: 8px;
 }
