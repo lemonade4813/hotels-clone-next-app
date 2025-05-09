@@ -7,6 +7,7 @@ import searchSvg from  "@/app/assets/search.svg";
 import positionSvg from "@/app/assets/position.svg";
 import calendarSvg from "@/app/assets/calendar.svg";
 import personSvg from "@/app/assets/person.svg";
+import DualRangeSlider from "../components/DualRangeSlider";
 
 interface ISerchResult{
     name : string;
@@ -99,29 +100,40 @@ export default function SearchResult({ keyword } : { keyword : string}) {
                 </div>
                 <div>
                     <p>필터링 기준</p>
-                    <div>
-                        <p>인기 필터</p>
+                    <fieldset style={{border : 'none'}}>
+                        <legend>인기 필터</legend>
                         <div>
-                            <div>
-                                <input type="checkbox"/>
-                                <label>바다 전망</label>
-                            </div>
-                            <div>
-                                <input type="checkbox"/>
-                                <label>스파</label>
-                            </div>
-                            <div>
-                                <input type="checkbox"/>
-                                <label>반려동물 동반 가능</label>
-                            </div>
-                            <div>
-                            <input type="checkbox"/>
-                                <label>반려동물 동반 가능</label>
-                            </div>
+                            <input type="checkbox" />
+                            <label>바다 전망</label>
                         </div>
-
+                        <div>
+                            <input type="checkbox"/>
+                            <label>스파</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label>반려동물 동반 가능</label>
+                        </div>
+                    </fieldset>
+                    <fieldset  style={{border : 'none'}}>
+                        <legend>숙박 옵션</legend>
+                        <div>
+                            <input type="radio" id="all"/>
+                            <label htmlFor="all">전체</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="hotel"/>
+                            <label htmlFor="hotel">호텔</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="residence"/>
+                            <label htmlFor="residence">주택</label>
+                        </div>
+                    </fieldset>
+                    <div>
+                        <p>가격</p>
+                        <DualRangeSlider min={0} max={6}/>
                     </div>
-
                 </div>
             </div>
             <div className={styles.mainContainer}>
