@@ -9,7 +9,7 @@ interface DualRangeSliderProps {
   step?: number;
 }
 
-const DualRangeSlider: React.FC<DualRangeSliderProps> = ({ min, max, step = 1 }) => {
+const DualRangeSlider: React.FC<DualRangeSliderProps> = ({ min, max, step = 1000 }) => {
   const [minVal, setMinVal] = useState(min);
   const [maxVal, setMaxVal] = useState(max);
 

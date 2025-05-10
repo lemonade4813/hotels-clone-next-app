@@ -8,6 +8,7 @@ import positionSvg from "@/app/assets/position.svg";
 import calendarSvg from "@/app/assets/calendar.svg";
 import personSvg from "@/app/assets/person.svg";
 import DualRangeSlider from "../components/DualRangeSlider";
+import FilteringOptionAmenities from "./FilteringOptionAmenities";
 
 interface ISerchResult{
     name : string;
@@ -118,21 +119,25 @@ export default function SearchResult({ keyword } : { keyword : string}) {
                     <fieldset  style={{border : 'none'}}>
                         <legend>숙박 옵션</legend>
                         <div>
-                            <input type="radio" id="all"/>
+                            <input type="radio" id="all" name="accomType"/>
                             <label htmlFor="all">전체</label>
                         </div>
                         <div>
-                            <input type="radio" id="hotel"/>
+                            <input type="radio" id="hotel" name="accomType"/>
                             <label htmlFor="hotel">호텔</label>
                         </div>
                         <div>
-                            <input type="radio" id="residence"/>
+                            <input type="radio" id="residence" name="accomType"/>
                             <label htmlFor="residence">주택</label>
                         </div>
                     </fieldset>
                     <div>
                         <p>가격</p>
-                        <DualRangeSlider min={0} max={6}/>
+                        <DualRangeSlider min={10000} max={100000}/>
+                    </div>
+                    <div>
+                        <p>편의시설/서비스</p>
+                        <FilteringOptionAmenities/>
                     </div>
                 </div>
             </div>
@@ -154,7 +159,6 @@ export default function SearchResult({ keyword } : { keyword : string}) {
                             <div style={{display : 'flex', alignItems :'center', gap : '10px'}}>
                                 <p className={styles.rating}>{result?.rating}</p>
                                 <p>{getCommentByRating(Number(result?.rating))}</p>
-                            
                             </div>
                         </div>
                         <div className={styles.priceInfoWrapper}>
