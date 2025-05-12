@@ -2,7 +2,7 @@ export const typeDefs = `#graphql
     type Resort {
       _id: ID
       name: String
-      direction: String
+      location: String
       keyword: [String]
       imgUrl : String
       city : String
@@ -11,6 +11,7 @@ export const typeDefs = `#graphql
       costPrice : Int
       salePrice : Int
       totalPrice : Int
+      grade : Int
     }
 
     type Query {

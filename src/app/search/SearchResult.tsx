@@ -7,12 +7,14 @@ import searchSvg from  "@/app/assets/search.svg";
 import positionSvg from "@/app/assets/position.svg";
 import calendarSvg from "@/app/assets/calendar.svg";
 import personSvg from "@/app/assets/person.svg";
+import starSvg from "@/app/assets/star.svg";
 import DualRangeSlider from "../components/DualRangeSlider";
 import FilteringOptionAmenities from "./FilteringOptionAmenities";
+import { useMemo, useState } from "react";
 
-interface ISerchResult{
+interface ISearchResult{
     name : string;
-    direction : string;
+    location : string;
     city : string;
     imgUrl : string;
     rating : string;
@@ -20,7 +22,11 @@ interface ISerchResult{
     costPrice : number;
     salePrice : number;
     totalPrice : number;
+    grade : 1 | 2 | 3 | 4 | 5 | null;
 }
+
+type ICriteria = Pick<ISearchResult, "name" | "location"| "grade" | "city">
+
 
 export default function SearchResult({ keyword } : { keyword : string}) {
 
@@ -30,22 +36,60 @@ export default function SearchResult({ keyword } : { keyword : string}) {
                 name
                 city
                 imgUrl
-                direction
+                location
                 rating
                 isFullRefund
                 costPrice
                 salePrice
                 totalPrice
+                grade
             }
         }
     `
-    const { data } = useSuspenseQuery<{ result: ISerchResult[] }>(
+    const { data } = useSuspenseQuery<{ result: ISearchResult[] }>(
             GET_SEARCH_RESULT, 
             { variables  : { keyword }, 
             errorPolicy : 'all'}
     );
 
-    const searchResult = data?.result ?? [];
+
+    const [criteria, setCrteria] = useState<ICriteria>({ name : '', location : '', city : '', grade : null });
+
+    const filteredResults = useMemo(() => {
+        if (!data?.result) return [];
+      
+        return data.result.filter((item) => {
+          for (const key in criteria) {
+            const value = criteria[key as keyof ICriteria];
+      
+            
+            if (value === '' || value === null) continue;
+            const itemValue = item[key as keyof ISearchResult];
+      
+            if (typeof value === 'string') {
+              if (
+                typeof itemValue !== 'string' || 
+                !itemValue.includes(value)
+              ) {
+                return false;
+              }
+            }
+      
+            if (typeof value === 'number') {
+              if (itemValue !== value) return false;
+            }
+      
+            if (typeof value === 'boolean') {
+              if (itemValue !== value) return false;
+            }
+          }
+      
+          return true;
+        });
+      }, [data, criteria]);
+
+
+    // const searchResult = data?.result ?? [];
 
     const getCommentByRating = (rating : number) => {
 
@@ -140,9 +184,34 @@ export default function SearchResult({ keyword } : { keyword : string}) {
                         <FilteringOptionAmenities/>
                     </div>
                 </div>
+                <div>
+                    <span>숙박 시설 등급</span>
+                    <div className={styles.gradeContainer}>
+                       <div className={styles.gradeItem}>
+                            <span>1</span>
+                            <Image src={starSvg} width={30} height={30} alt="호텔 등급 스타"/>
+                       </div> 
+                       <div className={styles.gradeItem}>
+                            <span>2</span>
+                            <Image src={starSvg} width={30} height={30} alt="호텔 등급 스타"/>
+                       </div> 
+                       <div className={styles.gradeItem}>
+                            <span>3</span>
+                            <Image src={starSvg} width={30} height={30} alt="호텔 등급 스타"/>
+                       </div> 
+                       <div className={styles.gradeItem}>
+                            <span>4</span>
+                            <Image src={starSvg} width={30} height={30} alt="호텔 등급 스타"/>
+                       </div> 
+                       <div className={styles.gradeItem}>
+                            <span>5</span>
+                            <Image src={starSvg} width={30} height={30} alt="호텔 등급 스타"/>
+                       </div> 
+                    </div>
+                </div>
             </div>
             <div className={styles.mainContainer}>
-            {searchResult?.map(result => 
+            {filteredResults?.map(result => 
                 <div key={result.name} 
                      className={styles.hotelInfoContainer}>
                     <Image src={result.imgUrl} 
