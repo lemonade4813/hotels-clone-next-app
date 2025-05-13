@@ -20,7 +20,7 @@ import pet from "@/app/assets/filtering/amenities/pet.svg";
 import electcar from "@/app/assets/filtering/amenities/electcar.svg";
 
 import Image from "next/image";
-import styles from "./FilteringOptionAmenities.module.css";
+import styles from "./FilteringByAmenities.module.css";
 
 const amenitesOption = [
     {name : 'bar', src : bar, discription : '바'},
@@ -46,15 +46,18 @@ const amenitesOption = [
 ]
 
 
-export default function FilteringOptionAmenities() {
+export default function FilteringByAmenities() {
   return (
-    <div className={styles.amenitiesOptionContainer}>
-        {amenitesOption.map((option) => 
-          <div key={option.name} className={styles.amenitiesOptionItem}>
-              <Image src={option.src} alt={option.discription}/>
-              <span>{option.discription}</span>
-          </div>
-        )}
+    <div>
+      <p>편의시설/서비스</p>
+      <div className={styles.amenitiesOptionContainer}>
+          {amenitesOption.map((option) => 
+            <div key={option.name} className={styles.amenitiesOptionItem}>
+                <Image src={option.src} alt={option.discription}/>
+                <span>{option.discription}</span>
+            </div>
+          )}
+      </div>
     </div>
   )
 }
