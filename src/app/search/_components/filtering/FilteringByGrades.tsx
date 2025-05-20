@@ -8,10 +8,15 @@ const grades: (1 | 2 | 3 | 4 | 5)[] = [1, 2, 3, 4, 5];
 
 interface FilteringByGradesProps {
     handleCriteria: <K extends keyof ICriteria>(key: K, value: ICriteria[K]) => void;
+    value : any;
 }
 
 
-function FilteringByGrades({ handleCriteria } : FilteringByGradesProps) {
+function FilteringByGrades({ handleCriteria, value } : FilteringByGradesProps) {
+
+  console.log("재렌더링 333")
+  console.log(value)
+
   return (
     <div>
         <span>숙박 시설 등급</span>

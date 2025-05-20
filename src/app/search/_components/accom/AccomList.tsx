@@ -2,6 +2,7 @@ import React from 'react'
 import styles from "../../Search.module.css";
 import { ISearchResult } from '../../SearchResult';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const getCommentByRating = (rating : number) => {
 
@@ -20,10 +21,15 @@ const getCommentByRating = (rating : number) => {
 }
 
 export default function AccomList({ filteredResults } : { filteredResults : ISearchResult[] }) {
+
+  const router = useRouter();
+
+
   return (
-    <div className={styles.mainContainer}>
+    <div className={styles.mainContainer} >
             {filteredResults?.map(result => 
                 <div key={result.name} 
+                     onClick={() => router.push(`/detail/${result._id}`)}
                      className={styles.hotelInfoContainer}>
                     <Image src={result.imgUrl} 
                         width={200} 

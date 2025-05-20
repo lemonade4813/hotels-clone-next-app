@@ -1,26 +1,40 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { ICriteria } from '../../SearchResult';
 
 interface FilteringByAcoomTypeProps {
   handleCriteria: <K extends keyof ICriteria>(key: K, value: ICriteria[K]) => void;
+  value : string;
 }
 
 
-const accomType = [{value : '', id : 'all', label : '전체'}, 
-                   {value : 'hotel', id : 'hotel', label : '호텔'}, 
-                   {value : 'residence', id : 'residence', label : '주택'}
+const accomTypeList = [
+                    {value : '', id : 'all', label : '전체'}, 
+                    {value : 'hotel', id : 'hotel', label : '호텔'}, 
+                    {value : 'residence', id : 'residence', label : '주택'}
                   ]
 
-export default function FilteringByAccomType({handleCriteria} : FilteringByAcoomTypeProps) {
+function FilteringByAccomType({ handleCriteria, value } : FilteringByAcoomTypeProps) {
+
+  console.log("재렌더링 222222")
+
   return (
     <fieldset  style={{border : 'none'}}>
         <legend>숙박 시설 유형</legend>
-        {accomType.map((accom) =>
+        {accomTypeList.map((accom) =>
           <div>
-              <input type="radio" value={accom.value} id={accom.id} name="accomType" onClick={() => handleCriteria('accomType', accom.value)}/>
-              <label htmlFor="all">전체</label>
+              <input 
+                type="radio" 
+                value={accom.value} 
+                checked={accom.value === value}
+                id={accom.id} 
+                name="accomType" 
+                onClick={() => handleCriteria('accomType', accom.value)}
+              />
+              <label htmlFor="all">{accom.label}</label>
           </div>
         )}
     </fieldset>
   )
 }
+
+export default memo(FilteringByAccomType)

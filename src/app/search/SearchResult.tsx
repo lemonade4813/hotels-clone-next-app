@@ -8,11 +8,12 @@ import SearchOptions from "./_components/searchOptions/SearchOptions";
 import AccomList from "./_components/accom/AccomList";
 import FilteringByPopularKeyword from "./_components/filtering/FilteringByPopularKeyword";
 import FilteringByPrice from "./_components/filtering/FilteringByPrice";
-import FilteringByAmenities from "./FilteringByAmenities";
+//import FilteringByAmenities from "./FilteringByAmenities";
 import FilteringByGrades from "./_components/filtering/FilteringByGrades";
-import FilteringByName from "./_components/filtering/FilteringByname";
+import FilteringByName from "./_components/filtering/FilteringByName";
 
 export interface ISearchResult{
+    _id : string;
     name : string;
     location : string;
     city : string;
@@ -39,6 +40,7 @@ export default function SearchResult({ keyword } : { keyword : string}) {
     const GET_SEARCH_RESULT = gql`
         query GetSearchResult($keyword: String) {
             result(keyword: $keyword) {
+                _id
                 name
                 city
                 imgUrl
@@ -66,6 +68,10 @@ export default function SearchResult({ keyword } : { keyword : string}) {
                                                   grade : null , 
                                                   accomType : ''
                                                 });
+    const { name, location, city, grade, accomType } = criteria;        
+    
+    
+    console.log(data?.result[0]._id)
 
     const filteredResults = useMemo(() => {
         if (!data?.result) return [];
@@ -101,9 +107,7 @@ export default function SearchResult({ keyword } : { keyword : string}) {
       }, [data, criteria]);
 
 
-    // const searchResult = data?.result ?? [];
-
-    
+    // // const searchResult = data?.result ?? [];
 
     const handleCriteria = useCallback(
         <K extends keyof ICriteria>(key: K, value: ICriteria[K]) => {
@@ -137,14 +141,14 @@ export default function SearchResult({ keyword } : { keyword : string}) {
             <SearchOptions/>
             <div className={styles.content}>
                 <div className={styles.asideContainer}>
-                    <FilteringByName handleCriteria = { handleCriteria }/>
+                    <FilteringByName handleCriteria = { handleCriteria } value={name}/>
                     <div>
                         <p>필터링 기준</p>
                         <FilteringByPopularKeyword />
-                        <FilteringByAccomType handleCriteria = { handleCriteria }/>
+                        <FilteringByAccomType handleCriteria = { handleCriteria } value={accomType}/>
                         <FilteringByPrice/>
-                        <FilteringByAmenities/>
-                        <FilteringByGrades handleCriteria={ handleCriteria }/>     
+                        {/* <FilteringByAmenities/> */}
+                        <FilteringByGrades handleCriteria={ handleCriteria } value={grade}/>      
                     </div> 
                 </div>               
                 <AccomList filteredResults={filteredResults} />
