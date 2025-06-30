@@ -24,7 +24,7 @@ export default function Detail({ id } : { id : string }) {
         }
     `
 
-    const { data, error } = useSuspenseQuery<{ detail: [] }>(
+    const { data } = useSuspenseQuery<{ detail: [] }>(
         GET_DETAIL_INFO, 
         { variables  : { id }, 
         errorPolicy : 'all'}
