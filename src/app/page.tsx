@@ -24,6 +24,7 @@ export default function Home() {
       <main className={styles.main}>
         <div style={{ position: 'relative', width: '1200px', height : '400px'}}>
           <Image
+            className={styles.bannerImage}
             src={banner}
             alt="배너"
             width={1200}
@@ -44,61 +45,25 @@ export default function Home() {
               boxSizing : 'border-box'
             }}
           >
-            <p style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>다음엔 어디로 떠나세요?</p>
-            <div
-              style={{
-                width: '1000px',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: '1rem',
-              }}
-            >
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  backgroundColor: '#FFF',
-                  padding: '1rem',
-                  borderRadius: '8px',
-                  flex : 1,
-                }}
-              >
+            <p className={styles.bannerText}>다음엔 어디로 떠나세요?</p>
+            <div className={styles.bannerCriteriaListContainer}>
+              <div className={styles.bannerCriteriaItemContainer}>
                 <Image src={position} alt="위치 이미지" />
-                <div style={{ marginLeft: '0.5rem' }}>
+                <div className={styles.criteriaField}>
                   <p>어디로 가세요?</p>
                   <p>인천, 한국</p>
                 </div>
               </div>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  backgroundColor: '#FFF',
-                  padding: '1rem',
-                  borderRadius: '8px',
-                  flex : 1,
-                }}
-              >
+              <div className={styles.bannerCriteriaItemContainer}>
                 <Image src={calendar} alt="달력 이미지" />
-                <div style={{ marginLeft: '0.5rem' }}>
+                <div className={styles.criteriaField}>
                   <p>언제 떠나세요?</p>
                   <p>4월 30일 - 5월 2일</p>
                 </div>
               </div>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  backgroundColor: '#FFF',
-                  padding: '1rem',
-                  borderRadius: '8px',
-                  boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-                  flex : 1,
-                }}
-              >
+              <div className={styles.bannerCriteriaItemContainer}>
                 <Image src={person} alt="인원 수 이미지" />
-                <div style={{ marginLeft: '0.5rem' }}>
+                <div className={styles.criteriaField}>
                   <p>인원 수</p>
                   <p>객실 1개 2명</p>
                 </div>
