@@ -4,6 +4,9 @@ import Image from 'next/image';
 import logo from "@/app/assets/logo.svg";
 import commcenter from "@/app/assets/commcenter.svg";
 import download from "@/app/assets/download.svg";
+import LoginModal from './LoginModal';
+import { GoogleLogin } from '@react-oauth/google';
+import GoogleLoginButton from './GoogleLoginButton';
 
 export default function Header() {
   return (
@@ -33,8 +36,9 @@ export default function Header() {
               <li >
                 <Image src={commcenter} alt="커뮤니케이션 센터 이미지" className={styles.commcenter}/>
               </li>
-              <li>로그인</li>
+              <LoginModal/>
             </ul>
+            <GoogleLoginButton/>
           </nav>
         </div>
       </header>

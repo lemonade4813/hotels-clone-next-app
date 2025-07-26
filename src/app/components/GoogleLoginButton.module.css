@@ -1,0 +1,23 @@
+.googleLoginButton{
+    background-color : #1668e3;
+    height : 50px;
+    width : 300px;
+    border : none;
+    display : flex;
+    align-items : center;
+    border-radius : 6px;
+}
+
+.googleLogo{
+    border-radius : 16px;
+    margin : 3px;
+    height : 30px;
+    width : 30px;
+    background-color : #fff;
+}
+
+.googleLoginText{
+    color : #fff;
+    flex : 1;
+    font-size : 16px;
+}

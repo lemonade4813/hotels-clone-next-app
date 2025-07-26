@@ -68,6 +68,7 @@ export default function Home() {
                   <p>객실 1개 2명</p>
                 </div>
               </div>
+              <button className={styles.searchButton}>검색</button>
             </div>
           </div>
         </div>

@@ -92,6 +92,17 @@
     
 }
 
+.searchButton{
+    border-radius: 32px;
+    width: 80px;
+    background-color : #1668e3;
+    height: 50px;
+    border : none;
+    font-size : 20px;
+    color : #fff;
+
+}
+
 @media screen and (max-width : 768px) {
     .bannerCriteriaListContainer{
         flex-direction: column;

@@ -1,0 +1,46 @@
+  .loginContainer {
+    position: relative;
+  }
+  
+  .loginTrigger {
+    cursor: pointer;
+  }
+  
+  .loginModal {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+    width : 400px;
+  }
+
+  .loginInfoText{
+    font-size: 20px;
+    color : #000;
+  }
+
+
+  .loginButton{
+    border-radius: 30px;
+    height : 48px;
+    width: 100%;
+    background-color: #1668e3;
+    color : #fff;
+    border : none;
+    font-size : 20px;
+  }
+
+  .signupText{
+    width: 100%;
+    text-align: center;
+  }
+
+  .customerOptionText{
+    border-top: 1px solid #d3d3d3;
+    padding: 20px;
+    color: #000;
+  }
