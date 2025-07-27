@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 import { ApolloWrapper } from "./ApolloWrapper";
 import Header from "./components/Header";
 import OAuthProvider from "./OAuthProvider";
+import HeaderWrapper from "./components/HeaderWrapper";
 
 const pretendard = localFont({src : './fonts/PretendardVariable.woff2',
                               variable : '--font-prentendard',
@@ -26,7 +27,7 @@ export default function RootLayout({
     <html lang="en" className={pretendard.className}>
       <body>
         <OAuthProvider>
-          <Header/>
+        <HeaderWrapper/>
           <ApolloWrapper>{children}</ApolloWrapper>
         </OAuthProvider>
       </body>

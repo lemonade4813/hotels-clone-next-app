@@ -5,8 +5,6 @@ import logo from "@/app/assets/logo.svg";
 import commcenter from "@/app/assets/commcenter.svg";
 import download from "@/app/assets/download.svg";
 import LoginModal from './LoginModal';
-import { GoogleLogin } from '@react-oauth/google';
-import GoogleLoginButton from './GoogleLoginButton';
 
 export default function Header() {
   return (
@@ -38,7 +36,6 @@ export default function Header() {
               </li>
               <LoginModal/>
             </ul>
-            <GoogleLoginButton/>
           </nav>
         </div>
       </header>

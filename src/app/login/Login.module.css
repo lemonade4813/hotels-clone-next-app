@@ -1,0 +1,37 @@
+.container{
+    display : flex;
+    flex-direction : column;
+    width : 400px;
+    margin : 0 auto;
+
+}
+
+.continueButton{
+    background-color : #1668e3;
+    height : 50px;
+    border : none;
+    display : flex;
+    justify-content: center;
+    align-items : center;
+    border-radius : 6px;
+    margin-top : 40px;
+    color : #fff;
+    border-radius: 32px;
+    font-size: 20px;
+}
+
+.emailInput{
+    height : 40px;
+    border-radius : 8px; 
+    border : 1px solid #000;
+    margin-top : 20px; 
+}
+
+.backbutton{
+    position : absolute;
+    left : 10px;
+}
+
+.loginText{
+    font-size : 30px;
+}
