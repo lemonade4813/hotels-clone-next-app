@@ -1,4 +1,4 @@
-.container{
+.loginContainer{
     display : flex;
     flex-direction : column;
     width : 400px;
@@ -47,4 +47,15 @@
         cursor: pointer;
     }
 
+}
+
+.text{
+
+    text-align : center;
+    margin-top : 40px;
+}
+
+.pageContainer{
+
+    position : relative;
 }
