@@ -72,7 +72,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <NoticeDiscount/>
+        <NoticeDiscount 
+          noticeText="회원은 로그인시 전 세계 10만여개 호텔을 10% 이상 할인해 드려요. " 
+          buttonText="지금 로그인하기"
+          noticeType="Discount"
+          />
         <SuggestionMenu/>
         <div style={{ width: '1200px' , overflow : 'hidden'}}>
           <p>마음에 꼭 맞는 새로운 숙소 찾기</p>

@@ -1,15 +1,27 @@
-.container{
+
+@mixin container($width){
+
     border-radius : 16px;
     background-color : #0c0e1c;
     height : 80px;
-    width : 1200px;
+    width : $width;
     margin-top : 30px;
     display : flex;
     align-items : center;
     justify-content : space-between;
     padding : 16px;
     gap : 20px;
+
 }
+
+.rewardContainer{
+    @include container(800px);
+}
+
+.discountContainer{
+    @include container(1200px);
+}
+
 
 .text{
     color : #fff;

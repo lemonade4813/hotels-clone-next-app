@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React, { memo } from 'react'
-import styles from "../../Search.module.css";
+import styles from "../../Search.module.scss";
 import starSvg from "@/app/assets/star.svg";
 import { ICriteria } from '../../SearchResult';
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "../../Search.module.css";
+import styles from "../../Search.module.scss";
 import searchSvg from  "@/app/assets/search.svg";
 import positionSvg from "@/app/assets/position.svg";
 import calendarSvg from "@/app/assets/calendar.svg";

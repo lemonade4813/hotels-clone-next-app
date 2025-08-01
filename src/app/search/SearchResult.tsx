@@ -1,7 +1,7 @@
 'use client'
 
 import { gql, useSuspenseQuery } from "@apollo/client"
-import styles from "./Search.module.css";
+import styles from "./Search.module.scss";
 import  { useCallback, useMemo, useState } from "react";
 import FilteringByAccomType from "./_components/filtering/FilteringByAccomType";
 import SearchOptions from "./_components/searchOptions/SearchOptions";
@@ -11,6 +11,7 @@ import FilteringByPrice from "./_components/filtering/FilteringByPrice";
 //import FilteringByAmenities from "./FilteringByAmenities";
 import FilteringByGrades from "./_components/filtering/FilteringByGrades";
 import FilteringByName from "./_components/filtering/FilteringByName";
+import NoticeDiscount from "../components/NoticeDiscount";
 
 export interface ISearchResult{
     _id : string;
@@ -150,8 +151,11 @@ export default function SearchResult({ keyword } : { keyword : string}) {
                         {/* <FilteringByAmenities/> */}
                         <FilteringByGrades handleCriteria={ handleCriteria } value={grade}/>      
                     </div> 
-                </div>               
+                </div>       
+                <div>
+                <NoticeDiscount noticeText="10박을 숙박하면 리워드 1박을 드려요!" buttonText="로그인하기" noticeType="Reward"/>
                 <AccomList filteredResults={filteredResults} />
+                </div>
             </div>
         </div>
     )

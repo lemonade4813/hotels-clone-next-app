@@ -60,11 +60,11 @@ const DualRangeSlider: React.FC<DualRangeSliderProps> = ({ min, max, step = 1000
       <div className={styles.sliderValuesWrapper}>
         <div>
             <p>최소</p>
-            <p>{minVal}</p>
+            <p>{minVal.toLocaleString()}</p>
         </div>
         <div>
             <p>최대</p>
-            <p>{maxVal}</p> 
+            <p>{maxVal.toLocaleString()}</p> 
         </div>
       </div>
     </div>

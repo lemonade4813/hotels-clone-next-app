@@ -1,6 +1,7 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect, useRef, useState } from 'react'
 import { ICriteria } from '../../SearchResult';
-import styles from "../../Search.module.css";
+import styles from "../../Search.module.scss";
+import FilteringByNameModal from './FilteringByNameModal';
 
 interface FilteringByNameProps {
     handleCriteria: <K extends keyof ICriteria>(key: K, value: ICriteria[K]) => void;
@@ -8,19 +9,34 @@ interface FilteringByNameProps {
 }
 
 
-function FilteringByName({ handleCriteria, value } : FilteringByNameProps) {
+function FilteringByName({ value } : FilteringByNameProps) {
+// function FilteringByName({ handleCriteria, value } : FilteringByNameProps) {
   
-  console.log('재렌더링 11111')
+  const [isOpen, setIsOpen] = useState(false);
+
+  const filteringModalRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    const handleOutsideClose = (e: MouseEvent) => {
+      if (isOpen && filteringModalRef.current && !filteringModalRef.current.contains(e.target as Node)) {
+        setIsOpen(false)
+      }
+    }
+    document.addEventListener('click', handleOutsideClose)
+    return () => document.removeEventListener('click', handleOutsideClose)
+  }, [isOpen])
 
   return (
-    <div>
-        <p>숙박 시설 이름으로 검색</p>
-        <input 
-            value={value}
-            placeholder="예 : 메리어트" 
-            className={styles.searchField} 
-            onChange={(e)=> handleCriteria('name', e.target.value)}
-        />
+    <div ref={filteringModalRef}>
+      <p>숙박 시설 이름으로 검색</p>
+      <input 
+          value={value}
+          placeholder="예 : 메리어트" 
+          className={styles.searchField} 
+          onClick={() => setIsOpen(!isOpen)}
+          readOnly
+      />
+      {isOpen && <FilteringByNameModal />}
     </div>
   )
 }

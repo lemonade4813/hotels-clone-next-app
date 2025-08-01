@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 import { ICriteria } from '../../SearchResult';
 
+
 interface FilteringByAcoomTypeProps {
   handleCriteria: <K extends keyof ICriteria>(key: K, value: ICriteria[K]) => void;
   value : string;
@@ -15,14 +16,14 @@ const accomTypeList = [
 
 function FilteringByAccomType({ handleCriteria, value } : FilteringByAcoomTypeProps) {
 
-  console.log("재렌더링 222222")
-
   return (
     <fieldset  style={{border : 'none'}}>
         <legend>숙박 시설 유형</legend>
         {accomTypeList.map((accom) =>
           <div>
               <input 
+                style={{backgroundColor : 'red'}}
+        
                 type="radio" 
                 value={accom.value} 
                 checked={accom.value === value}
