@@ -75,7 +75,7 @@ export default function Home() {
         <NoticeDiscount 
           noticeText="회원은 로그인시 전 세계 10만여개 호텔을 10% 이상 할인해 드려요. " 
           buttonText="지금 로그인하기"
-          noticeType="Discount"
+          noticeType="discount"
           />
         <SuggestionMenu/>
         <div style={{ width: '1200px' , overflow : 'hidden'}}>

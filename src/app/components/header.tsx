@@ -5,13 +5,14 @@ import logo from "@/app/assets/logo.svg";
 import commcenter from "@/app/assets/commcenter.svg";
 import download from "@/app/assets/download.svg";
 import LoginModal from './LoginModal';
+import Link from 'next/link';
 
 export default function Header() {
   return (
     <header className={styles.header}>
         <div className={styles.headerLeft}>
           <h1>
-            <Image src={logo} alt="호텔스 닷컴 로고 이미지"/>
+            <Link href="/"><Image src={logo} alt="호텔스 닷컴 로고 이미지"/></Link>
           </h1>
           <p>여행 예약</p>
           <ul className={styles.reservationDetail}>
