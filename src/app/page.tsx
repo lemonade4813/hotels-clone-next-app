@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "@/app/Home.module.css";
+import styles from "@/app/Home.module.scss";
 import position from "@/app/assets/position.svg";
 import calendar from "@/app/assets/calendar.svg";
 import person from "@/app/assets/person.svg";
@@ -83,7 +83,7 @@ export default function Home() {
         </div>        
         <CarouselContainer>
           {roomtypes.map(((rt, index) => 
-          <Link href = {{pathname : `/search/${rt.keyword}`}}>
+          <Link href = {{pathname : `/search/${rt.keyword}`}} key={index}>
             <RoomTypeCard 
               key={index} 
               src={rt.src} 

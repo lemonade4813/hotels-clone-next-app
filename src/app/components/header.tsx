@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "@/app/Home.module.css";
+import styles from "@/app/Home.module.scss";
 import Image from 'next/image';
 import logo from "@/app/assets/logo.svg";
 import commcenter from "@/app/assets/commcenter.svg";

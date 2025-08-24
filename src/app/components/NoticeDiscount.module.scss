@@ -1,8 +1,11 @@
+@use '@/app/common';
+
+
 
 @mixin container($width){
 
     border-radius : 16px;
-    background-color : #0c0e1c;
+    background-color : common.$benefit-notice-background;
     height : 80px;
     width : $width;
     margin-top : 30px;
@@ -30,9 +33,9 @@
 }
 
 .button{
+    background-color: common.$common-button-color;
     width : 120px;
     border-radius: 16px;
-    background-color: #1668e3;
     border : none;
     color : #fff;
     height: 36px;

@@ -1,3 +1,6 @@
+@use '@/app/common';
+
+
 .header{
     display: flex;
     align-items: center;
@@ -95,7 +98,7 @@
 .searchButton{
     border-radius: 32px;
     width: 80px;
-    background-color : #1668e3;
+    background-color : common.$common-button-color;
     height: 50px;
     border : none;
     font-size : 20px;
