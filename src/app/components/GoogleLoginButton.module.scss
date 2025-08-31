@@ -1,5 +1,8 @@
+@use '@/app/common';
+
+
 .googleLoginButton{
-    background-color : #1668e3;
+    background-color : common.$common-button-color;
     height : 50px;
     border : none;
     display : flex;

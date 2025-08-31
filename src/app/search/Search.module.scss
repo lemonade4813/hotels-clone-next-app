@@ -1,3 +1,6 @@
+@use '@/app/common';
+
+
 .container{
     max-width: 1200px;
     width: 100%;
@@ -12,7 +15,6 @@
     gap : 20px;
     padding : 20px;
     height  : 60px;   
-
 }
 
 .searchOptionContainer{
@@ -35,7 +37,7 @@
 
 .searchButton {
     border-radius : 999px;
-    background-color : #1668e3;
+    background-color : common.$common-button-color;
     border : none;
     width : 40px;
     height : 40px;
