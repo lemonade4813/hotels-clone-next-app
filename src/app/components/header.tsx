@@ -35,6 +35,7 @@ export default function Header() {
               <li >
                 <Image src={commcenter} alt="커뮤니케이션 센터 이미지" className={styles.commcenter}/>
               </li>
+              <Link href={'/qna'}><li>Q&A</li></Link>
               <LoginModal/>
             </ul>
           </nav>

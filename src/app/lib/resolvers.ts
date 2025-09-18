@@ -22,5 +22,14 @@ export const resolvers = {
      
         return result;
       },
+      qnaList: async () => {
+        const client = await clientPromise;
+        const db = client.db();
+        const collection = db.collection('qnalist');
+      
+        const results = await collection.find({}).toArray();
+      
+        return results;
+      }
     },
   };
