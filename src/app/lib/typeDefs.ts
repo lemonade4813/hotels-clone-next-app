@@ -31,5 +31,18 @@ export const typeDefs = `#graphql
     type Query {
       result(keyword: String): [Resort]
       detail(id : String) : Detail
+      qnaList: [Qna]
+    }
+
+    type Mutation {
+      createQna(title: String!, content: String!, author: String!): Qna
+    }
+
+    type Qna {
+      _id: ID!
+      title: String!
+      content: String!
+      author: String!
+      createdAt: String!
     }
 `;

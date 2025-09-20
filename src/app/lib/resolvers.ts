@@ -32,4 +32,27 @@ export const resolvers = {
         return results;
       }
     },
+    Mutation: {
+      createQna: async (
+        _: any,
+        args: { title: string; content: string; author: string }
+      ) => {
+        const client = await clientPromise;
+        const db = client.db();
+        const collection = db.collection("qnalist");
+  
+        const newQna = {
+          title: args.title,
+          content: args.content,
+          author: args.author,
+          createdAt: new Date().toISOString(),
+        };
+  
+        const result = await collection.insertOne(newQna);
+        return {
+          _id: result.insertedId,
+          ...newQna,
+        };
+      },
+    },
   };
