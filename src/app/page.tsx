@@ -9,6 +9,14 @@ import RoomTypeCard from "./components/RoomTypeCard";
 import NoticeDiscount from "./components/NoticeDiscount";
 import SuggestionMenu from "./components/SuggestionMemu";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+import GoogleMap from "./components/GoogleMap";
+
+
+// const GoogleMap = dynamic(() => import("@/app/components/GoogleMap"), {
+//   ssr: false,
+// })
+
 
 export default function Home() {
   const roomtypes = 
@@ -80,7 +88,10 @@ export default function Home() {
         <SuggestionMenu/>
         <div style={{ width: '1200px' , overflow : 'hidden'}}>
           <p>마음에 꼭 맞는 새로운 숙소 찾기</p>
-        </div>        
+        </div>  
+    
+        <GoogleMap/>  
+       
         <CarouselContainer>
           {roomtypes.map(((rt, index) => 
           <Link href = {{pathname : `/search/${rt.keyword}`}} key={index}>
@@ -93,6 +104,7 @@ export default function Home() {
           )
           )}
         </CarouselContainer>
+ 
       </main>
     </>
   );

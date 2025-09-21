@@ -12,6 +12,7 @@ import FilteringByPrice from "./_components/filtering/FilteringByPrice";
 import FilteringByGrades from "./_components/filtering/FilteringByGrades";
 import FilteringByName from "./_components/filtering/FilteringByName";
 import NoticeDiscount from "../components/NoticeDiscount";
+import GoogleMap from "../components/GoogleMap";
 
 export interface ISearchResult{
     _id : string;
@@ -142,6 +143,12 @@ export default function SearchResult({ keyword } : { keyword : string}) {
             <SearchOptions/>
             <div className={styles.content}>
                 <div className={styles.asideContainer}>
+                <div style={{position : 'relative'}}>
+                  <div>
+                    <GoogleMap/>
+                  </div>
+                  <p style={{textAlign : 'center', borderRadius : '30px'}}>지도로 보기</p>
+                </div>
                     <FilteringByName handleCriteria = { handleCriteria } value={name}/>
                     <div>
                         <p>필터링 기준</p>
