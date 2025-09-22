@@ -88,10 +88,7 @@ export default function Home() {
         <SuggestionMenu/>
         <div style={{ width: '1200px' , overflow : 'hidden'}}>
           <p>마음에 꼭 맞는 새로운 숙소 찾기</p>
-        </div>  
-    
-        <GoogleMap/>  
-       
+        </div>
         <CarouselContainer>
           {roomtypes.map(((rt, index) => 
           <Link href = {{pathname : `/search/${rt.keyword}`}} key={index}>

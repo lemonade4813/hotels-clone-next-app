@@ -147,7 +147,7 @@ export default function SearchResult({ keyword } : { keyword : string}) {
                   <div>
                     <GoogleMap/>
                   </div>
-                  <p style={{textAlign : 'center', borderRadius : '30px'}}>지도로 보기</p>
+                  <p style={{textAlign : 'center', borderRadius : '30px',}}>지도로 보기</p>
                 </div>
                     <FilteringByName handleCriteria = { handleCriteria } value={name}/>
                     <div>

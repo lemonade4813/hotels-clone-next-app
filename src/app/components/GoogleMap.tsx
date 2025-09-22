@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from 'react'
 import { Loader } from '@googlemaps/js-api-loader'
+import style from '@/app/components/GoogleMap.module.css';
+
 
 export default function GoogleMap() {
   const ref = useRef<HTMLDivElement | null>(null)
@@ -28,5 +30,5 @@ export default function GoogleMap() {
       });
     });
   }, []);
-  return <div ref={ref} style={{ width: '100%', borderRadius : '30px', aspectRatio : '16/9'}} />
+  return <div ref={ref} className={style.container} />
 }
