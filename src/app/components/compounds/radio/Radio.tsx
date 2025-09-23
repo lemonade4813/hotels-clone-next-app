@@ -60,7 +60,7 @@ const Label = ({ children, ...props }: React.PropsWithChildren<{}>) => {
   )
 }
 
-RadioWrapper.Checkbox = Radio
+RadioWrapper.Radio = Radio
 RadioWrapper.Label = Label
 
 export default RadioWrapper;
