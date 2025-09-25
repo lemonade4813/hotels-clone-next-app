@@ -9,10 +9,11 @@ import AccomList from "./_components/accom/AccomList";
 import FilteringByPopularKeyword from "./_components/filtering/FilteringByPopularKeyword";
 import FilteringByPrice from "./_components/filtering/FilteringByPrice";
 //import FilteringByAmenities from "./FilteringByAmenities";
-import FilteringByGrades from "./_components/filtering/FilteringByGrades";
+import FilteringByGrades from "./_components/filtering/FilteringByGrades"; 
 import FilteringByName from "./_components/filtering/FilteringByName";
 import NoticeDiscount from "../components/NoticeDiscount";
 import GoogleMap from "../components/GoogleMap";
+import CheckboxGroup from "../components/compounds/groups/CheckboxGroup";
 
 export interface ISearchResult{
     _id : string;
@@ -35,6 +36,7 @@ export interface ICriteria {
     grade :  1 | 2 | 3 | 4 | 5 | null;  
     city : string; 
     accomType : string;
+    popularKeywords : string[]
 }
 
 export default function SearchResult({ keyword } : { keyword : string}) {
@@ -68,7 +70,8 @@ export default function SearchResult({ keyword } : { keyword : string}) {
                                                   location : '', 
                                                   city : '', 
                                                   grade : null , 
-                                                  accomType : ''
+                                                  accomType : '',
+                                                  popularKeywords : []
                                                 });
     const { name, location, city, grade, accomType } = criteria;        
     
@@ -138,6 +141,27 @@ export default function SearchResult({ keyword } : { keyword : string}) {
         []
       );
 
+    // const [selectedPopularKeywords, setSelectedPopularKeywords] = useState<string[]>([]);
+
+    // const toggle = (value: string) => {
+    //   setSelectedPopularKeywords((prev) => {
+    //     const exists = prev.includes(value);
+    //     const newState = exists ? prev.filter((v) => v !== value) : [...prev, value];
+    //     return newState;
+    //   });
+    // };
+  
+    const popularKeywords = { 
+                               title : '인기 필터', 
+                               list : [{ label : '강릉', value : 'gangneung'},
+                                       { label : '스파', value : 'spa'},
+                                       { label : '수영장', value : 'pool'},
+                                       { label : '바다 전망', value : 'oceanview'},
+                                       { label : '호텔', value : 'hotel'}
+                              ],
+                              onchange : handleCriteria
+                            } 
+                            
     return(
         <div className={styles.container}>
             <SearchOptions/>
@@ -149,18 +173,38 @@ export default function SearchResult({ keyword } : { keyword : string}) {
                   </div>
                   <p style={{textAlign : 'center', borderRadius : '30px',}}>지도로 보기</p>
                 </div>
-                    <FilteringByName handleCriteria = { handleCriteria } value={name}/>
+                    <FilteringByName 
+                      handleCriteria = { handleCriteria } 
+                      value={name}
+                    />
                     <div>
                         <p>필터링 기준</p>
                         <FilteringByPopularKeyword />
-                        <FilteringByAccomType handleCriteria = { handleCriteria } value={accomType}/>
+                        <CheckboxGroup
+                          title={popularKeywords.title}
+                          list={popularKeywords.list}
+                          selectedState={criteria.popularKeywords}
+                          // onChange={handleCriteria}
+                          onChange={handleCriteria}
+                        />
+                        <FilteringByAccomType 
+                          handleCriteria = { handleCriteria } 
+                          value={accomType}
+                        />
                         <FilteringByPrice/>
                         {/* <FilteringByAmenities/> */}
-                        <FilteringByGrades handleCriteria={ handleCriteria } value={grade}/>      
+                        <FilteringByGrades 
+                          handleCriteria = { handleCriteria } 
+                          value={grade}
+                        />      
                     </div> 
                 </div>       
                 <div>
-                <NoticeDiscount noticeText="10박을 숙박하면 리워드 1박을 드려요!" buttonText="로그인하기" noticeType="reward"/>
+                <NoticeDiscount 
+                  noticeText="10박을 숙박하면 리워드 1박을 드려요!" 
+                  buttonText="로그인하기" 
+                  noticeType="reward"
+                />
                 <AccomList filteredResults={filteredResults} />
                 </div>
             </div>

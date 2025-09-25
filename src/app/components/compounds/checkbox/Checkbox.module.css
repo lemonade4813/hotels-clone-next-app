@@ -1,0 +1,17 @@
+.checkbox{
+    border : 1px solid #818494;     
+    border-radius: 2px;
+    
+}
+
+.checkboxWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.checkboxLabel{
+
+}
