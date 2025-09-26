@@ -1,33 +1,36 @@
 import { createContext, useContext } from "react"
 
-
 type RadioContextProps = {
   id: string
-  isChecked: boolean
-  onChange: () => void
+  value : string
+  onChange: (value: string) => void;
+  selectedValue : any
 }
 
 type RadioProps = RadioContextProps & React.PropsWithChildren<{}>
 
 const RadioContext = createContext<RadioContextProps>({
   id: '',
-  isChecked: false,
+  value : '',
+  selectedValue : '',
   onChange: () => {},
 })
 
 const RadioWrapper = ({
   id,
-  isChecked,
   onChange,
   children,
+  value,
+  selectedValue
 }: RadioProps) => {
-  const value = {
+  const ctx = {
     id,
-    isChecked,
     onChange,
+    value,
+    selectedValue
   }
   return (
-    <RadioContext.Provider value={value}>
+    <RadioContext.Provider value={ctx}>
       {children}
     </RadioContext.Provider>
   )
@@ -39,13 +42,19 @@ const useRadioContext = () => {
 }
 
 const Radio = ({ ...props }) => {
-  const { id, isChecked, onChange } = useRadioContext()
+  const { id, onChange, selectedValue, value } = useRadioContext()
+
+  const handleChange = () => {
+    onChange(value);
+  };
+
   return (
     <input
       type="radio"
       id={id}
-      checked={isChecked}
-      onChange={onChange}
+      value={value}
+      checked={selectedValue === value}
+      onChange={handleChange}
       {...props}
     />
   )

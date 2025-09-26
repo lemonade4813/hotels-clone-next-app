@@ -184,7 +184,7 @@ export default function SearchResult({ keyword } : { keyword : string}) {
                           title={popularKeywords.title}
                           list={popularKeywords.list}
                           selectedState={criteria.popularKeywords}
-                          // onChange={handleCriteria}
+                          name={'popularKeywords'}         
                           onChange={handleCriteria}
                         />
                         <FilteringByAccomType 

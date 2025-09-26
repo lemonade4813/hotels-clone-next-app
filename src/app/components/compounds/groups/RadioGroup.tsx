@@ -1,0 +1,47 @@
+import { ICriteria } from '@/app/search/SearchResult';
+import React from 'react'
+import RadioWrapper from '../radio/Radio';
+  
+type Item = {
+    label: string;
+    value: string;
+};
+
+
+export default function RadioGroup({
+    title,
+    list,
+    name,
+    selectedValue,
+    onChange,
+  }: {
+    title: string;
+    list: Item[];
+    name : keyof ICriteria;
+    selectedValue: string;
+    onChange: (key: keyof ICriteria, value: string) => void;
+  }) {
+    return(
+    <div>
+        <h4>{title}</h4>
+        <div role="group" aria-label={title}>
+        {list.map((item) => (
+          <div>
+            <RadioWrapper
+              key={item.value}
+              id={item.value}
+              value={item.value}
+              selectedValue={selectedValue}
+              onChange={(value : any) => onChange(name, value)}
+            >
+                <RadioWrapper.Radio />
+                <RadioWrapper.Label>
+                  {item.label}
+                </RadioWrapper.Label>    
+            </RadioWrapper>
+          </div>
+        ))}
+        </div>
+    </div>
+  )
+}

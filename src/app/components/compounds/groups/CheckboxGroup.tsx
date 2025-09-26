@@ -22,7 +22,7 @@
 
 import React from 'react';
 import CheckboxWrapper from '../checkbox/Checkbox';
-import style from "../checkbox/Checkbox.module.css"
+// import style from "../checkbox/Checkbox.module.css"
 import { ICriteria } from '@/app/search/SearchResult';
 
 type Item = {
@@ -35,11 +35,13 @@ export default function CheckBoxGroup({
   list,
   selectedState,
   onChange,
+  name,
 }: {
   title: string;
   list: Item[];
   selectedState: string[];
   onChange: (key: keyof ICriteria, value: string) => void;
+  name: keyof ICriteria;  
 }) {
   return (
     <div>
@@ -52,7 +54,7 @@ export default function CheckBoxGroup({
               id={item.value}
               value={item.value}
               selectedState={selectedState}
-              onChange={() => onChange}
+              onChange={(value) => onChange(name, value)}
             >
 
                 <CheckboxWrapper.Checkbox />
