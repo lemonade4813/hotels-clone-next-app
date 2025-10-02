@@ -1,28 +1,6 @@
-// import React from 'react'
-// import CheckboxWrapper from '../checkbox/Checkbox'
-
-// export default function CheckBoxGroup({title, list} : {title : string, list : any[]}) {
-
-
-
-//   return (
-//     <div>
-//         <h4>{title}</h4>
-//         <CheckboxWrapper>
-//             <h4>{title}</h4>
-//             {list.map((item))}
-//             <CheckboxWrapper.Checkbox value={..}/>
-//             <CheckboxWrapper.Label>{}</CheckboxWrapper.Label>
-
-
-//         </CheckboxWrapper>
-//     </div>
-//   )
-// }
-
 import React from 'react';
 import CheckboxWrapper from '../checkbox/Checkbox';
-// import style from "../checkbox/Checkbox.module.css"
+import style from "../checkbox/Checkbox.module.css"
 import { ICriteria } from '@/app/search/SearchResult';
 
 type Item = {
@@ -48,7 +26,7 @@ export default function CheckBoxGroup({
       <h4>{title}</h4>
       <div role="group" aria-label={title}>
         {list.map((item) => (
-          <div>
+          <div className={style.checkboxWrapper}>
             <CheckboxWrapper
               key={item.value}
               id={item.value}

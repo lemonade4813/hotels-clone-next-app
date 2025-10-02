@@ -1,4 +1,6 @@
 import { createContext, useContext } from "react"
+import style from "../radio/Radio.module.css";
+
 
 type RadioContextProps = {
   id: string
@@ -50,6 +52,7 @@ const Radio = ({ ...props }) => {
 
   return (
     <input
+      className={style.radiobutton}
       type="radio"
       id={id}
       value={value}
@@ -63,7 +66,7 @@ const Radio = ({ ...props }) => {
 const Label = ({ children, ...props }: React.PropsWithChildren<{}>) => {
   const { id } = useRadioContext()
   return (
-    <label htmlFor={id} {...props}>
+    <label htmlFor={id} {...props} className={style.radioLabel}>
       {children}
     </label>
   )

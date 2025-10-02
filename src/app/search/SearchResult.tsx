@@ -14,6 +14,7 @@ import FilteringByName from "./_components/filtering/FilteringByName";
 import NoticeDiscount from "../components/NoticeDiscount";
 import GoogleMap from "../components/GoogleMap";
 import CheckboxGroup from "../components/compounds/groups/CheckboxGroup";
+import RadioGroup from "../components/compounds/groups/RadioGroup";
 
 export interface ISearchResult{
     _id : string;
@@ -161,6 +162,13 @@ export default function SearchResult({ keyword } : { keyword : string}) {
                               ],
                               onchange : handleCriteria
                             } 
+
+    const accomTypes = [{ label : '전체', value : 'all'}, 
+                        { label : '호텔', value : 'hotel'},
+                        { label : '주택', value : 'house'}
+                        ]                        
+
+
                             
     return(
         <div className={styles.container}>
@@ -187,10 +195,17 @@ export default function SearchResult({ keyword } : { keyword : string}) {
                           name={'popularKeywords'}         
                           onChange={handleCriteria}
                         />
-                        <FilteringByAccomType 
+                        <RadioGroup
+                           title='숙박 옵션'
+                           list={accomTypes}
+                           selectedValue={criteria.accomType}
+                           name={'accomType'}         
+                           onChange={handleCriteria}
+                        />
+                        {/* <FilteringByAccomType 
                           handleCriteria = { handleCriteria } 
                           value={accomType}
-                        />
+                        /> */}
                         <FilteringByPrice/>
                         {/* <FilteringByAmenities/> */}
                         <FilteringByGrades 

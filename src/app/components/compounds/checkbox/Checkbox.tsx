@@ -139,7 +139,7 @@ const Checkbox = (props: React.InputHTMLAttributes<HTMLInputElement>) => {
 const Label = ({ children, ...props }: React.PropsWithChildren<{}>) => {
   const { id } = useCheckboxContext();
   return (
-    <label htmlFor={id} {...props}>
+    <label htmlFor={id} {...props} className={style.checkboxLabel}>
       {children}
     </label>
   );
