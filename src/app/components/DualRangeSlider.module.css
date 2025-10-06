@@ -65,4 +65,22 @@
 
 .sliderValuesWrapper {
   display: flex;
+  gap: 10px;
+}
+
+
+
+.minMaxValue {
+  border-radius: 12px;
+  border: 1px solid #000;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  gap : 10px;
+  padding-left: 10px;
+}
+
+ 
+.minMaxText{
+  font-size : 14px;
 }
