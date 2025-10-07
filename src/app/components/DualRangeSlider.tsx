@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './DualRangeSlider.module.css';
 
 interface DualRangeSliderProps {
@@ -26,6 +26,31 @@ const DualRangeSlider: React.FC<DualRangeSliderProps> = ({ min, max, step = 1000
     const value = Math.max(Number(e.target.value), minVal + step);
     setMaxVal(value);
   };
+
+  const [isMaxClicked, setIsMaxClicked] = useState(false);
+  const [isMinClicked, setIsMinClicked] = useState(false);
+
+  const minRef = useRef<HTMLDivElement>(null);
+  const maxRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        minRef.current &&
+        maxRef.current &&
+        !minRef.current.contains(e.target as Node) &&
+        !maxRef.current.contains(e.target as Node)
+
+
+      ) {
+        setIsMinClicked(false);
+        setIsMaxClicked(false);
+      }
+    };
+
+    window.addEventListener("mousedown", handleClickOutside);
+    return () => window.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <div className={styles.sliderContainer}>
@@ -58,13 +83,40 @@ const DualRangeSlider: React.FC<DualRangeSliderProps> = ({ min, max, step = 1000
         />
       </div>
       <div className={styles.sliderValuesWrapper}>
-        <div className={styles.minMaxValue}>
+        <div className={`${styles.minMaxItemWrapper} ${
+          isMinClicked ? styles.active : ''
+        }`}
+          ref={minRef}
+          onClick={e=> {
+                        e.stopPropagation();
+                        setIsMinClicked(true)
+                        setIsMaxClicked(false)}}>
             <p className={styles.minMaxText}>최소</p>
-            <p>₩ {minVal.toLocaleString()}</p>
+       
+            {!isMinClicked  ? <p className={styles.minMaxText}>₩ {minVal.toLocaleString()}</p>
+                            : <input type='text' 
+                              value={minVal}
+                              className={styles.minMaxValueField}
+                              onChange={e => setMinVal(Number(e.target.value))}/>
+                            }
         </div>
-        <div className={styles.minMaxValue}>
+        <div className={`${styles.minMaxItemWrapper} ${
+          isMaxClicked ? styles.active : ''
+        }`}
+          ref={maxRef}
+          onClick={(e) => {
+                        e.stopPropagation();
+                        setIsMaxClicked(true);
+                        setIsMinClicked(false);
+                    }}>
             <p className={styles.minMaxText}>최대</p>
-            <p>₩ {maxVal.toLocaleString()}</p> 
+       
+            {!isMaxClicked ? <p className={styles.minMaxText}>₩ {maxVal.toLocaleString()}</p> 
+                           : <input type='text' 
+                              value={maxVal}
+                              className={styles.minMaxValueField}
+                              onChange={(e)=> setMaxVal(Number(e.target.value))}
+                            />}
         </div>
       </div>
     </div>
