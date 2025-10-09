@@ -1,0 +1,103 @@
+.container{
+    width : 1200px;
+    margin : 0 auto;
+
+}
+
+.hotelSummary{
+    color : #191E3B;
+}
+
+.hotelDescription{
+    color : #191E3B;
+}
+
+.review{
+    color : #1668E3;
+}
+
+.roomSelectButton{
+    background-Color : #191E3B;
+    border-radius : 999px; 
+    color : #FFF;
+    width  : 90px;
+    height : 40px;
+    font-size : 14px;
+    font-weight : 400;
+}
+
+.ratingWrapper{
+    display : flex;
+    gap : 12px;
+}
+
+.star{
+    display : flex;
+}
+
+.luxuryItem{
+    background : #E61E43;
+    border-radius : 8px;
+    color : #FFF;
+    height : 24px;
+    width : 60px;
+    line-height : 24px;
+    text-align : center;
+    font-size : 12px; 
+}
+
+.vipAccessItem{
+    background : #0C0E1C;
+    border-radius : 8px;
+    color : #FFF;
+    height : 24px;
+    width : 80px;
+    line-height : 24px;
+    text-align : center;
+    font-size : 12px; 
+}
+
+.hotelKorName{
+    font-size : 36px;
+    height: 40px;
+}
+
+.hotelEngName{
+    font-size : 14px;
+}
+
+.rating{
+    background : #227950;
+    border-radius : 8px;
+    color : #FFF;
+    height : 24px;
+    width : 60px;
+    line-height : 24px;
+    text-align : center;
+    font-size : 12px;
+}
+
+.overViewWrapper{
+    background-Color : #F9ECEA;
+    border-radius : 16px;
+    width: 50vw;
+}
+
+.nav{
+    display : flex;
+    gap : 20px;
+    font-size : 14px;
+}
+
+.header{
+    border-bottom : 1px solid #EAE3D2;
+    display : flex;
+    align-items : center;
+    justify-content : space-between;
+}
+
+.hotelGradeWrapper{
+    display: flex;
+    align-items: center;
+    gap : 20px;
+}
