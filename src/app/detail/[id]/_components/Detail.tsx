@@ -6,6 +6,9 @@ import React from 'react'
 import StarSvg from '@/app/assets/common/star.svg';
 import style from '../Detail.module.css';
 import GoogleMap from '@/app/components/GoogleMap';
+import PoolSvg from '@/app/assets/filtering/amenities/pool.svg';
+import RestaurantSvg from '@/app/assets/filtering/amenities/restaurant.svg';
+import ArrowSvg from '@/app/assets/arrow.svg';
 
 export default function Detail({ id } : { id : string }) {
 
@@ -70,7 +73,16 @@ export default function Detail({ id } : { id : string }) {
                     </div>
                     <p className={style.hotelSummary}>해변 파라디이스에서 즐기는 멋진 일몰</p>
                     <p className={style.hotelDescription}>뛰어난 전망과 조경이 잘 관리된 놀랍도록 아름다운 숙소로, 해변 애호가와 멋진 일출과 일몰을 찾는 분들에게 완벽한 곳입니다. 인상적인 인피니티 풀, 환상적인 뷔페, 클럽 라운지에서 기억에 남는 해피아워를 즐겨보세요.</p>
-                </div>    
+                </div>
+                <div>
+                    <p style={{fontSize : '20px'}}>이 숙박 시설에 대한 정보</p>
+                    <p>이 거리 근처에 위치한 럭셔리 호텔, 14개의 레스토랑 보유</p>
+                    <div>
+                        <p style={{display : 'flex', alignItems : 'center'}}><Image src={PoolSvg} alt="야외 수영장"/>야외 수영장</p>
+                        <p style={{display : 'flex', alignItems : 'center'}}><Image src={RestaurantSvg} alt="레스토랑"/>뷔페 레스토랑</p>
+                    </div>
+                    <p style={{color : '#1668E3'}}>이 숙박 시설에 대한 전체 내용 확인하기 <Image src={ArrowSvg} alt="" style={{fill : "#1668E3"}}/></p>    
+                </div>   
                 <div style={{width : '25vw'}}>
                     <GoogleMap/>
                 </div>
