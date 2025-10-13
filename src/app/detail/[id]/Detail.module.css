@@ -37,7 +37,7 @@
 
 .luxuryItem{
     background : #E61E43;
-    border-radius : 8px;
+    border-radius : 4px;
     color : #FFF;
     height : 24px;
     width : 60px;
@@ -48,7 +48,7 @@
 
 .vipAccessItem{
     background : #0C0E1C;
-    border-radius : 8px;
+    border-radius : 4px;
     color : #FFF;
     height : 24px;
     width : 80px;
@@ -80,7 +80,9 @@
 .overViewWrapper{
     background-Color : #F9ECEA;
     border-radius : 16px;
-    width: 50vw;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .nav{
