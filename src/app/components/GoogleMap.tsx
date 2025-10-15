@@ -1,11 +1,25 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { PropsWithChildren, useEffect, useRef } from 'react'
 import { Loader } from '@googlemaps/js-api-loader'
-import style from '@/app/components/GoogleMap.module.css';
+import style from '@/app/components/GoogleMap.module.scss';
 
 
-export default function GoogleMap() {
+interface IGoogleMap {
+  mapWidth? : number;
+  lat? : number;
+  lng? : number;
+
+
+}
+// const center = { lat: 37.5665, lng: 126.9780 }
+
+export default function GoogleMapCopy(
+  { mapWidth, 
+    lat = 37.5665, 
+    lng = 126.9780, 
+    children 
+  } : PropsWithChildren<IGoogleMap>) {
   const ref = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -15,7 +29,7 @@ export default function GoogleMap() {
     });
 
     loader.load().then((google) => {
-      const center = { lat: 37.5665, lng: 126.9780 }; // 서울 중심 좌표
+      const center = { lat, lng };
 
       const map = new google.maps.Map(ref.current!, {
         center,
@@ -30,5 +44,12 @@ export default function GoogleMap() {
       });
     });
   }, []);
-  return <div ref={ref} className={style.container} />
+  return (
+      <div className={style.container} style={{width : mapWidth ? `${mapWidth}px` : '100%'}}>
+        <div ref={ref} className={style.mapArea}/>
+        <div className={style.bottomArea}>
+          {children}
+        </div>
+      </div>
+  )
 }

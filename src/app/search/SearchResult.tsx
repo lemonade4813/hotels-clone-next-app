@@ -12,9 +12,9 @@ import FilteringByPrice from "./_components/filtering/FilteringByPrice";
 import FilteringByGrades from "./_components/filtering/FilteringByGrades"; 
 import FilteringByName from "./_components/filtering/FilteringByName";
 import NoticeDiscount from "../components/NoticeDiscount";
-import GoogleMap from "../components/GoogleMap";
 import CheckboxGroup from "../components/compounds/groups/CheckboxGroup";
 import RadioGroup from "../components/compounds/groups/RadioGroup";
+import GoogleMap from "../components/GoogleMap";
 
 export interface ISearchResult{
     _id : string;
@@ -177,9 +177,10 @@ export default function SearchResult({ keyword } : { keyword : string}) {
                 <div className={styles.asideContainer}>
                 <div style={{position : 'relative'}}>
                   <div>
-                    <GoogleMap/>
+                    <GoogleMap>
+                      지도로 보기
+                    </GoogleMap>
                   </div>
-                  <p style={{textAlign : 'center', borderRadius : '30px',}}>지도로 보기</p>
                 </div>
                     <FilteringByName 
                       handleCriteria = { handleCriteria } 
@@ -187,7 +188,7 @@ export default function SearchResult({ keyword } : { keyword : string}) {
                     />
                     <div>
                         <p>필터링 기준</p>
-                        <FilteringByPopularKeyword />
+                        {/* <FilteringByPopularKeyword /> */}
                         <CheckboxGroup
                           title={popularKeywords.title}
                           list={popularKeywords.list}

@@ -123,17 +123,43 @@
     text-align : end;
 }
 
-.searchField{
-    height: 30px;
+// .searchField{
+//     height: 30px;
+//     line-height: 30px;
+//     width: 80%;
+//     border-radius: 12px;
+//     border : 1px solid #d3d3d3;
+//     padding: 8px; 
+//     background: url('/search.svg') 5px no-repeat;
+//     background-size : 20px 20px;
+//     padding-left: 30px;
+//     cursor: pointer;
+
+// }
+
+
+// .searchField::placeholder{
+//    font-size: 20px;
+//    display: flex;
+//    align-items: center;
+// }
+
+.searchField {
+    height: 40px;
     width: 80%;
     border-radius: 12px;
-    border : 1px solid #d3d3d3;
-    padding: 8px; 
-    background: url('/search.svg') 5px no-repeat;
-    background-size : 20px 20px;
-    padding-left: 30px;
+    border: 1px solid #d3d3d3;
+    padding: 0 8px 0 30px; 
+    background: url('/search.svg') 5px center no-repeat;
+    background-size: 20px 20px;
+    line-height: 40px; 
     cursor: pointer;
-}
+  
+    &::placeholder {
+      font-size: 18px;
+      color: #999;
+    }
+  }
 
 .gradeContainer{
     display : flex;
