@@ -47,9 +47,11 @@ export default function GoogleMapCopy(
   return (
       <div className={style.container} style={{width : mapWidth ? `${mapWidth}px` : '100%'}}>
         <div ref={ref} className={style.mapArea}/>
-        <div className={style.bottomArea}>
-          {children}
-        </div>
+        {children &&
+          <div className={style.bottomArea}>
+            {children}
+          </div>
+        }
       </div>
   )
 }

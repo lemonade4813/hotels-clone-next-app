@@ -145,19 +145,23 @@
 // }
 
 .searchField {
-    height: 40px;
+    height: 48px;
     width: 80%;
     border-radius: 12px;
     border: 1px solid #d3d3d3;
     padding: 0 8px 0 30px; 
     background: url('/search.svg') 5px center no-repeat;
     background-size: 20px 20px;
-    line-height: 40px; 
+    line-height: 48px; 
     cursor: pointer;
+
+    display: flex;
+    align-items: center;
   
     &::placeholder {
       font-size: 18px;
-      color: #999;
+      color: #191E3B;
+     
     }
   }
 

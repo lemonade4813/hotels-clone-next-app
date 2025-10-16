@@ -8,7 +8,8 @@ import style from '../Detail.module.css';
 import GoogleMap from '@/app/components/GoogleMap';
 import PoolSvg from '@/app/assets/filtering/amenities/pool.svg';
 import RestaurantSvg from '@/app/assets/filtering/amenities/restaurant.svg';
-import ArrowSvg from '@/app/assets/arrow.svg';
+import ArrowSvg from '@/app/assets/arrow.svg'; 
+import VipAccessItem from '@/app/components/common/VipAccessItem';
 
 export default function Detail({ id } : { id : string }) {
 
@@ -55,7 +56,7 @@ export default function Detail({ id } : { id : string }) {
                 <div className={style.overViewWrapper}>
                     <div className={style.hotelGradeWrapper}>
                         <p className={style.luxuryItem}>럭셔리</p>
-                        <p className={style.vipAccessItem}>VIP access</p>
+                        <VipAccessItem/>
                         <div className={style.ratingPoint}>
                             <Image src={StarSvg} alt="rate" width={16} height={16}/>
                             <Image src={StarSvg} alt="rate" width={16} height={16}/>
@@ -96,6 +97,24 @@ export default function Detail({ id } : { id : string }) {
                     <div style={{width : '30vw', height : '20vh'}}>
                         <GoogleMap/>
                     </div>
+                </div>
+            </div>
+            <div className={style.vipAccessPrivilegeInfoContainer}>    
+                <VipAccessItem/>
+                <div className={style.vipAccessPrivilegeContentWrapper}>
+                    <p>회원님께 드리는 더 많은 혜택</p>
+                    <ul className={style.listStyle}>
+                        <li>실버 이상 등급이 되면 일부 VIP Access 숙박 시설 15% 이상 할인</li>
+                        <li>최고 수준의 품질과 탁월한 서비스 제공</li>
+                        <li>일부 숙박 시설에서의 숙박 특전 및 객실 이용 상황에 따라 
+                            무료 객실 업그레이드, 이른 체크인 및 늦은 체크아웃 제공
+                        </li>
+                    </ul>
+                    <p className={style.detailPrvilegeInfoText}>
+                        자세히 알아보기
+                        <Image src={ArrowSvg} alt='자세히 알아보기' style={{fill : 'blue'}}/>
+                        <svg fill="currentColor" className="uitk-icon uitk-icon-directional uitk-icon-small uitk-icon-default-theme" aria-hidden="true" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><path d="m11.086 5.5 5.5 5.5H4.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h12.086l-5.505 5.505c-.172.18-.043.495.212.495h1.914a.5.5 0 0 0 .354-.146l6.146-6.147a1 1 0 0 0 0-1.414l-6.146-6.147A.5.5 0 0 0 13.207 5h-1.914c-.258 0-.385.322-.207.5z"></path></svg>
+                    </p>
                 </div>
             </div>
         </div>

@@ -29,13 +29,10 @@ function FilteringByName({ value } : FilteringByNameProps) {
   return (
     <div ref={filteringModalRef}>
       <p>숙박 시설 이름으로 검색</p>
-      <input 
-          value={value}
-          placeholder="예 : 메리어트" 
+      <p
           className={styles.searchField} 
           onClick={() => setIsOpen(!isOpen)}
-          readOnly
-      />
+      >예 : 메리어트</p>
       {isOpen && <FilteringByNameModal />}
     </div>
   )
