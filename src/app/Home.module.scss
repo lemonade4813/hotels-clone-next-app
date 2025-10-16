@@ -5,7 +5,10 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    color : #E61E43;
+
+    li {
+        color : #E61E43;
+    }
 }
 
 .navMenu{

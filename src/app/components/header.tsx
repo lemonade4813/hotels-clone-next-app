@@ -2,10 +2,10 @@ import React from 'react'
 import styles from "@/app/Home.module.scss";
 import Image from 'next/image';
 import logo from "@/app/assets/logo.svg";
-import commcenter from "@/app/assets/commcenter.svg";
 import download from "@/app/assets/download.svg";
 import LoginModal from './LoginModal';
 import Link from 'next/link';
+import CommcenterImg from './common/CommcenterImage';
 
 export default function Header() {
   return (
@@ -33,7 +33,7 @@ export default function Header() {
               <li>지원</li>
               <li>내 여행</li>
               <li >
-                <Image src={commcenter} alt="커뮤니케이션 센터 이미지" className={styles.commcenter}/>
+                <CommcenterImg size={20}/>
               </li>
               <Link href={'/qna'}><li>Q&A</li></Link>
               <LoginModal/>

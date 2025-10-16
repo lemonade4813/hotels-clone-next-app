@@ -8,8 +8,8 @@ import style from '../Detail.module.css';
 import GoogleMap from '@/app/components/GoogleMap';
 import PoolSvg from '@/app/assets/filtering/amenities/pool.svg';
 import RestaurantSvg from '@/app/assets/filtering/amenities/restaurant.svg';
-import ArrowSvg from '@/app/assets/arrow.svg'; 
 import VipAccessItem from '@/app/components/common/VipAccessItem';
+import ArrowImage from '@/app/components/common/ArrowImage';
 
 export default function Detail({ id } : { id : string }) {
 
@@ -83,7 +83,7 @@ export default function Detail({ id } : { id : string }) {
                         <p style={{display : 'flex', alignItems : 'center', flex : 1}}><Image src={PoolSvg} alt="야외 수영장"/>야외 수영장</p>
                         <p style={{display : 'flex', alignItems : 'center', flex : 1}}><Image src={RestaurantSvg} alt="레스토랑"/>뷔페 레스토랑</p>
                     </div>
-                    <p style={{color : '#1668E3', display : 'flex', alignItems : 'center'}}>이 숙박 시설에 대한 전체 내용 확인하기 <Image src={ArrowSvg} alt="" style={{fill : "#1668E3"}}/></p>    
+                    <p style={{color : '#1668E3', display : 'flex', alignItems : 'center', gap : '10px'}}>이 숙박 시설에 대한 전체 내용 확인하기<ArrowImage size={20}/></p>    
                 </div>
                 </div>   
                 <div style={{display : 'flex', flexDirection : 'column'}}>
@@ -112,9 +112,9 @@ export default function Detail({ id } : { id : string }) {
                     </ul>
                     <p className={style.detailPrvilegeInfoText}>
                         자세히 알아보기
-                        <Image src={ArrowSvg} alt='자세히 알아보기' style={{fill : 'blue'}}/>
-                        <svg fill="currentColor" className="uitk-icon uitk-icon-directional uitk-icon-small uitk-icon-default-theme" aria-hidden="true" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><path d="m11.086 5.5 5.5 5.5H4.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h12.086l-5.505 5.505c-.172.18-.043.495.212.495h1.914a.5.5 0 0 0 .354-.146l6.146-6.147a1 1 0 0 0 0-1.414l-6.146-6.147A.5.5 0 0 0 13.207 5h-1.914c-.258 0-.385.322-.207.5z"></path></svg>
+                        <ArrowImage size={20}/>
                     </p>
+                 
                 </div>
             </div>
         </div>

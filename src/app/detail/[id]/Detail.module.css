@@ -121,9 +121,11 @@
 .detailPrvilegeInfoText{
     color : #1668E3;
     display : flex;
-    align-items : center;   
+    align-items : center;  
+    gap: 20px; 
 }
 
 .vipAccessPrivilegeContentWrapper{
     border-top : 1px solid #DFE0E4; 
 }
+
