@@ -38,9 +38,35 @@ export default function Detail({ id } : { id : string }) {
         errorPolicy : 'all'}
     );
 
-
+    const hotelName = 'parnas';
+    const hotelMainImage = ['image1'];
+    const hotelImageList = ['image2', 'image3', 'image4', 'image5'];
     return (
         <div className={style.container}>
+             <div className={style.hotelImageWrapper}>
+                <div className={style.hotelMainImageWrapper}>
+                    <Image
+                        src={`/hotel/preview/${hotelName}/${hotelMainImage}.jpg`}
+                        alt="호텔이미지 1"
+                        width={800}
+                        height={420}
+                        className={style.hotelMainImage}
+                    />
+                </div>
+                <div className={style.hotelSubImageWrapper}>
+                    {hotelImageList.map((img, index) => (
+                    <div key={index} className={style.hotelSubImageItemWrapper}>
+                        <Image
+                            src={`/hotel/preview/${hotelName}/${img}.jpg`}
+                            alt={`호텔이미지 ${img}`}
+                            width={400}
+                            height={200}
+                            className={style.hotelSubImageItem}
+                        />
+                    </div>
+                    ))}
+                </div>
+            </div>
             <div className={style.header}>
                 <ul className={style.nav}>
                     <li>소개</li>
