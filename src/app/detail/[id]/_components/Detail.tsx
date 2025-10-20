@@ -4,12 +4,15 @@ import { gql, useSuspenseQuery } from '@apollo/client'
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react'
 import StarSvg from '@/app/assets/common/star.svg';
-import style from '../Detail.module.css';
+import styles from '../Detail.module.css';
 import GoogleMap from '@/app/components/GoogleMap';
 import PoolSvg from '@/app/assets/filtering/amenities/pool.svg';
+import PreviousSvg from '@/app/assets/common/previous.svg';
 import RestaurantSvg from '@/app/assets/filtering/amenities/restaurant.svg';
 import VipAccessItem from '@/app/components/common/VipAccessItem';
 import ArrowImage from '@/app/components/common/ArrowImage';
+import Save from '@/app/components/common/Save';
+import Share from '@/app/components/common/Share';
 
 export default function Detail({ id } : { id : string }) {
 
@@ -79,98 +82,106 @@ export default function Detail({ id } : { id : string }) {
       }, []);
 
     return (
-        <div className={style.container}>
-             <div className={style.hotelImageWrapper}>
-                <div className={style.hotelMainImageWrapper}>
+        <div className={styles.container}>
+             <div className={styles.hotelImageWrapper}>
+                <div className={styles.hotelMainImageWrapper}>
+                    <Image 
+                        src={PreviousSvg} alt='이전 페이지 이동' 
+                        className={styles.previousButton}
+                    />
                     <Image
                         src={`/hotel/preview/${hotelName}/${hotelMainImage}.jpg`}
                         alt="호텔이미지 1"
                         width={800}
                         height={420}
-                        className={style.hotelMainImage}
+                        className={styles.hotelMainImage}
                     />
                 </div>
-                <div className={style.hotelSubImageWrapper}>
+                <div className={styles.hotelSubImageWrapper}>
+                    <div className={styles.favoriteAndSaveButtonWrapper}>
+                        <Save/>
+                        <Share/>
+                    </div>
                     {hotelImageList.map((img, index) => (
-                    <div key={index} className={style.hotelSubImageItemWrapper}>
+                    <div key={index} className={styles.hotelSubImageItemWrapper}>
                         <Image
                             src={`/hotel/preview/${hotelName}/${img}.jpg`}
                             alt={`호텔이미지 ${img}`}
                             width={400}
                             height={200}
-                            className={style.hotelSubImageItem}
+                            className={styles.hotelSubImageItem}
                         />
                     </div>
                     ))}
                 </div>
             </div>
-            <div className={style.header}>
-                <ul className={style.nav}>
-                    <li onClick={()=> setSectionIndex(0)} className={ sectionIndex === 0 ? style.active : ''}>소개</li>
-                    <li onClick={()=> setSectionIndex(1)} className={ sectionIndex === 1 ? style.active : ''}>편의 시설/서비스</li>
-                    <li onClick={()=> setSectionIndex(2)} className={ sectionIndex === 2 ? style.active : ''}>객실</li>
-                    <li onClick={()=> setSectionIndex(3)} className={ sectionIndex === 3 ? style.active : ''}>장애인 지원</li>
-                    <li onClick={()=> setSectionIndex(4)} className={ sectionIndex === 4 ? style.active : ''}>정책</li>
+            <div className={styles.header}>
+                <ul className={styles.nav}>
+                    <li onClick={()=> setSectionIndex(0)} className={ sectionIndex === 0 ? styles.active : ''}>소개</li>
+                    <li onClick={()=> setSectionIndex(1)} className={ sectionIndex === 1 ? styles.active : ''}>편의 시설/서비스</li>
+                    <li onClick={()=> setSectionIndex(2)} className={ sectionIndex === 2 ? styles.active : ''}>객실</li>
+                    <li onClick={()=> setSectionIndex(3)} className={ sectionIndex === 3 ? styles.active : ''}>장애인 지원</li>
+                    <li onClick={()=> setSectionIndex(4)} className={ sectionIndex === 4 ? styles.active : ''}>정책</li>
                 </ul>
-                <button className={style.roomSelectButton}>객실 선택</button>
+                <button className={styles.roomSelectButton}>객실 선택</button>
             </div>
-            <div style={{ gap : '40px'}} ref={(el) => {if(el)
+            <div ref={(el) => {
+                if(el)
                 sectionRefs.current[0] = el;
             }}>
-                
-                <div style={{display : 'flex', gap : '40px'}}>
-                    <div style={{width : '40vw'}}>
-                        <div className={style.overViewWrapper}>
-                            <div className={style.hotelGradeWrapper}>
-                                <p className={style.luxuryItem}>럭셔리</p>
+                <div className={styles.introWrapper}>
+                    <div className={styles.introLeftWrapper}>
+                        <div className={styles.overViewWrapper}>
+                            <div className={styles.hotelGradeWrapper}>
+                                <p className={styles.luxuryItem}>럭셔리</p>
                                 <VipAccessItem/>
-                                <div className={style.ratingPoint}>
+                                <div className={styles.ratingPoint}>
                                     <Image src={StarSvg} alt="rate" width={16} height={16}/>
                                     <Image src={StarSvg} alt="rate" width={16} height={16}/>
                                     <Image src={StarSvg} alt="rate" width={16} height={16}/>
                                     <Image src={StarSvg} alt="rate" width={16} height={16}/>
                                 </div>
                             </div>
-                            <p className={style.hotelKorName}>파르나스 호텔 제주</p>
-                            <p className={style.hotelEngName}>parnas Hotel Jeju</p>
-                            <p className={style.hotelSummary}>해변 파라디이스에서 즐기는 멋진 일몰</p>
-                            <p className={style.hotelDescription}>뛰어난 전망과 조경이 잘 관리된 놀랍도록 아름다운 숙소로, 해변 애호가와 멋진 일출과 일몰을 찾는 분들에게 완벽한 곳입니다. 인상적인 인피니티 풀, 환상적인 뷔페, 클럽 라운지에서 기억에 남는 해피아워를 즐겨보세요.</p>
+                            <p className={styles.hotelKorName}>파르나스 호텔 제주</p>
+                            <p className={styles.hotelEngName}>parnas Hotel Jeju</p>
+                            <p className={styles.hotelSummary}>해변 파라디이스에서 즐기는 멋진 일몰</p>
+                            <p className={styles.hotelDescription}>뛰어난 전망과 조경이 잘 관리된 놀랍도록 아름다운 숙소로, 해변 애호가와 멋진 일출과 일몰을 찾는 분들에게 완벽한 곳입니다. 인상적인 인피니티 풀, 환상적인 뷔페, 클럽 라운지에서 기억에 남는 해피아워를 즐겨보세요.</p>
                         </div>
-                        <div style={{width : '100%'}}>
-                            <p style={{fontSize : '20px'}}>이 숙박 시설에 대한 정보</p>
+                        <div style={{ width : '100%' }}>
+                            <p style={{ fontSize : '20px' }}>이 숙박 시설에 대한 정보</p>
                             <p>이 거리 근처에 위치한 럭셔리 호텔, 14개의 레스토랑 보유</p>
-                            <div style={{display : 'flex', gap : '10px'}}>
-                                <p style={{display : 'flex', alignItems : 'center', flex : 1}}><Image src={PoolSvg} alt="야외 수영장"/>야외 수영장</p>
-                                <p style={{display : 'flex', alignItems : 'center', flex : 1}}><Image src={RestaurantSvg} alt="레스토랑"/>뷔페 레스토랑</p>
+                            <div className={styles.amenitiesWrapper}>
+                                <p className={styles.amenityText}><Image src={PoolSvg} alt="야외 수영장"/>야외 수영장</p>
+                                <p className={styles.amenityText}><Image src={RestaurantSvg} alt="레스토랑"/>뷔페 레스토랑</p>
                             </div>
-                            <p style={{color : '#1668E3', display : 'flex', alignItems : 'center', gap : '10px'}}>이 숙박 시설에 대한 전체 내용 확인하기<ArrowImage size={20}/></p>    
+                            <p className={styles.goToAllInfoHotel}>이 숙박 시설에 대한 전체 내용 확인하기<ArrowImage size={20}/></p>    
                         </div>
                     </div>   
-                    <div style={{display : 'flex', flexDirection : 'column'}}>
-                        <div className={style.ratingWrapper}>
-                            <p className={style.rating}>9.4</p>
+                    <div className={styles.ratingWrapper}>
+                        <div className={styles.ratingHeader}>
+                            <p className={styles.rating}>9.4</p>
                             <p>최고에요</p>
                             <div>
-                                <p className={style.review}>이용 후기 1,004개</p>
+                                <p className={styles.review}>이용 후기 1,004개</p>
                             </div>
                         </div>
-                        <div style={{width : '20vw', height : '20vh'}}>
+                        <div className={styles.googleMapWrapper}>
                             <GoogleMap/>
                         </div>
                     </div>
                 </div>
-                <div className={style.vipAccessPrivilegeInfoContainer} >    
+                <div className={styles.vipAccessPrivilegeInfoContainer} >    
                     <VipAccessItem/>
-                    <div className={style.vipAccessPrivilegeContentWrapper}>
+                    <div className={styles.vipAccessPrivilegeContentWrapper}>
                         <p>회원님께 드리는 더 많은 혜택</p>
-                        <ul className={style.listStyle}>
+                        <ul className={styles.listStyle}>
                             <li>실버 이상 등급이 되면 일부 VIP Access 숙박 시설 15% 이상 할인</li>
                             <li>최고 수준의 품질과 탁월한 서비스 제공</li>
                             <li>일부 숙박 시설에서의 숙박 특전 및 객실 이용 상황에 따라 
                                 무료 객실 업그레이드, 이른 체크인 및 늦은 체크아웃 제공
                             </li>
                         </ul>
-                        <p className={style.detailPrvilegeInfoText}>
+                        <p className={styles.detailPrvilegeInfoText}>
                             자세히 알아보기
                             <ArrowImage size={20}/>
                         </p>
@@ -199,12 +210,13 @@ export default function Detail({ id } : { id : string }) {
                 }
             }>
             </div>
-            <div style={{height : '800px', background : 'hotpink'}} ref={(el) => {if(el)
-                sectionRefs.current[4] = el;
-            }}>
+            <div style={{height : '800px', background : 'hotpink'}} 
+                ref={(el) => {
+                    if(el)
+                    sectionRefs.current[4] = el;
+                }
+            }>
             </div>
-            
         </div>
-      
     )
 }

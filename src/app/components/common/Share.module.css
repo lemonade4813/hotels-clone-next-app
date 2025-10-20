@@ -4,6 +4,9 @@
     justify-content: center;
     gap : 20px;
     border-radius: 20px;
-    border : none;
+    border: none;
     height: 40px;
+    background-color: #FFF;
+    padding: 8px;
+    border : 1px solid #818494;
 }

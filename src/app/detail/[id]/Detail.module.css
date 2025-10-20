@@ -28,7 +28,19 @@
 
 .ratingWrapper{
     display : flex;
+    flex-direction : column;
+    gap : 20px;
+}
+
+
+
+.ratingHeader{
+    display : flex;
+    border : 1px solid #DFE0E4;
+    border-radius: 20px;
+    padding : 10px;
     gap : 12px;
+    margin-top : 20px;
 }
 
 .star{
@@ -151,6 +163,7 @@
 
 .hotelMainImageWrapper{
     flex: 1;
+    position: relative;
 }
 
 .hotelMainImage{
@@ -165,6 +178,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12;
+    position: relative;
 }
 
 .hotelSubImageItemWrapper{
@@ -177,4 +191,55 @@
     height: 200px;
     object-fit: cover;
     border-radius: 8;
+}
+
+.previousButton{
+    border-radius : 999px; 
+    position : absolute;
+    top : 20px; 
+    left : 20px;
+    width : 30px;
+    height : 30px;
+    padding : 8px;
+    background-color : #FFF;
+}
+
+.favoriteAndSaveButtonWrapper{
+    display : flex; 
+    position : absolute; 
+    gap : 20px; 
+    right : 20px; 
+    top  : 20px;
+}
+
+.googleMapWrapper{
+    width : 20vw;
+    height : 20vh;
+}
+
+.goToAllInfoHotel{
+    color : #1668E3;
+    display : flex;
+    align-items : center;
+    gap : 10px;
+}
+
+.amenityText{
+    display : flex;
+    align-items : center;
+    flex : 1;
+}
+
+.amenitiesWrapper{
+    display : flex;
+    gap : 10px;
+}
+
+.introLeftWrapper{
+    width : 40vw;
+}
+
+.introWrapper{
+    display : flex;
+    gap : 40px;
 }
