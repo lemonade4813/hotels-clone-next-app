@@ -243,3 +243,29 @@
     display : flex;
     gap : 40px;
 }
+
+.hotelRoomListWrapper{
+    display : grid;
+    grid-template-columns : repeat(3, 1fr);
+    grid-gap : 10px;
+}
+
+.hotelRoomItemWrapper{
+    border-radius : 20px;
+    background-color : orange;
+    height : 300px;
+}
+
+
+.hotelRoomInfoListWrapper{
+    display : flex;
+    flex-direction : column;
+}
+
+.hotelRoomInfoItemWrapper{
+    display : flex;
+    align-items : center;
+    gap : 10px;
+    height : 30px;
+    
+}

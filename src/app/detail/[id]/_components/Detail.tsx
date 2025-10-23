@@ -13,6 +13,12 @@ import VipAccessItem from '@/app/components/common/VipAccessItem';
 import ArrowImage from '@/app/components/common/ArrowImage';
 import Save from '@/app/components/common/Save';
 import Share from '@/app/components/common/Share';
+import ParkingSvg from '@/app/assets/common/parking.svg';
+import AreaSvg from '@/app/assets/common/area.svg';
+import BedSvg from '@/app/assets/common/bed.svg';
+import PersonSvg from '@/app/assets/common/person.svg';
+import CheckSvg from '@/app/assets/common/check.svg';
+import WifiSvg from '@/app/assets/common/wifi.svg';
 
 export default function Detail({ id } : { id : string }) {
 
@@ -188,14 +194,52 @@ export default function Detail({ id } : { id : string }) {
                     </div>
                 </div>
             </div>
-            <div 
+            <div className={styles.hotelRoomListWrapper}>
+                <div className={styles.hotelRoomItemWrapper}>
+                    <Image src={'/hotel/preview/parnas/room/deluxe/image1.jpg'} alt="이미지 1" width={300} height={100}/>
+                    <div className={styles.hotelRoomInfoListWrapper}>
+                        <div className={styles.hotelRoomInfoItemWrapper}>
+                            <Image src={ParkingSvg} alt="무료 주차"/>무료 셀프 주차
+                        </div>
+                        <div className={styles.hotelRoomInfoItemWrapper}>
+                            <Image src={AreaSvg} alt="면적"/>
+                            <p>37㎡</p>
+                        </div>
+                        <div className={styles.hotelRoomInfoItemWrapper}>
+                            <Image src={BedSvg} alt="침대"/>
+                            <p>킹사이드침대 1개</p>
+                        </div>
+                        <div className={styles.hotelRoomInfoItemWrapper}>
+                            <Image src={PersonSvg} alt="사람 수"/>
+                            <p>3명</p>
+                        </div>
+                        <div className={styles.hotelRoomInfoItemWrapper}>
+                            <Image src={WifiSvg} alt="와이파이"/>
+                            <p>무료 Wifi</p>
+                        </div>
+                        <div className={styles.hotelRoomInfoItemWrapper}>
+                            <Image src={CheckSvg} alt="현장 결제"/>
+                            <p>37㎡</p>
+                        </div>
+                        <div className={styles.hotelRoomInfoItemWrapper}>
+                            <Image src='https://a.travel-assets.com/egds/marks/brands/hotels/loyalty.svg' width={20} height={20} alt="면적"/>
+                            <p>적립및 사용</p>
+                        </div>
+                    </div>
+                </div>
+                <div style={{ borderRadius : '20px', backgroundColor : '#d3d3d3', height : '300px'}}>
+                </div>
+                <div style={{ borderRadius : '20px', backgroundColor : '#c8c8c8', height : '300px'}}>
+                </div>
+            </div>
+            {/* <div 
                 style={{height : '800px', background : 'red'}} 
                 ref={(el) => {
                     if(el)
                     sectionRefs.current[1] = el;
                 }
             }>
-            </div>
+            </div> */}
             <div style={{height : '800px', background : 'blue'}} 
                 ref={(el) => {
                     if(el)
