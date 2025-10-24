@@ -247,18 +247,20 @@
 .hotelRoomListWrapper{
     display : grid;
     grid-template-columns : repeat(3, 1fr);
-    grid-gap : 10px;
+    grid-gap : 30px;
 }
 
 .hotelRoomItemWrapper{
     border-radius : 20px;
-    background-color : orange;
-    height : 300px;
+    /* background-color : orange; */
+    border : 1px solid #DFE0E4;
+    /* height : 300px; */
 }
 
 
 .hotelRoomInfoListWrapper{
     display : flex;
+    padding: 10px;
     flex-direction : column;
 }
 
@@ -267,5 +269,80 @@
     align-items : center;
     gap : 10px;
     height : 30px;
-    
+}
+
+.discountInfo{
+    background-color : #E61E43; 
+    border-radius : 8px;
+    color : #FFF;
+    width : 80px; 
+    height : 30px; 
+    display : flex; 
+    align-items : center; 
+    justify-content : center;
+}
+
+.priceInfoWrapper{
+    display  : flex;
+    gap : 5px;
+    align-items : flex-end;
+}
+
+.originalPrice{
+    text-decoration : line-through;
+}
+
+.salePrice{
+    font-size : 20px;
+}
+
+.hotelRoomItemImageWrapper{
+    position : relative;
+    width : 100%;
+    height : 200px; 
+    border-radius : 20px;
+}
+
+.hotelRoomItemImage{
+    object-fit : cover;
+    border-radius : 20px 20px 0 0;
+}
+
+.hotelRoomItemName{
+    font-size : 18px;
+    padding-left : 10px;
+}
+
+.refundInfoWrapper{
+    display : flex;
+    align-items : center;
+    gap : 10px;
+}
+
+.fullRefundAbailableText{
+    color : #227950;
+}
+
+.detailInfoWrapper{
+    display : flex;
+    gap : 20px;
+    align-items : center;
+}
+
+.detailInfoText{
+    color : #1668E3;
+}
+
+.refundDeadLine{
+    font-size : 12px;
+}
+
+.reservationButton{
+    width : 100%; 
+    border-radius : 999px; 
+    background-color : #191E3B; 
+    border : none;
+    height : 48px;
+    color : #FFF;
+    font-Size : 18px
 }

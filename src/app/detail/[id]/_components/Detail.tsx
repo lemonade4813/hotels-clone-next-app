@@ -19,6 +19,8 @@ import BedSvg from '@/app/assets/common/bed.svg';
 import PersonSvg from '@/app/assets/common/person.svg';
 import CheckSvg from '@/app/assets/common/check.svg';
 import WifiSvg from '@/app/assets/common/wifi.svg';
+import InfoSvg from '@/app/assets/common/info.svg';
+
 
 export default function Detail({ id } : { id : string }) {
 
@@ -86,6 +88,10 @@ export default function Detail({ id } : { id : string }) {
     
         return () => observer.disconnect();
       }, []);
+
+
+      const a = 1000000;
+      const b = 1200000;
 
     return (
         <div className={styles.container}>
@@ -196,7 +202,15 @@ export default function Detail({ id } : { id : string }) {
             </div>
             <div className={styles.hotelRoomListWrapper}>
                 <div className={styles.hotelRoomItemWrapper}>
-                    <Image src={'/hotel/preview/parnas/room/deluxe/image1.jpg'} alt="이미지 1" width={300} height={100}/>
+                    <div className={styles.hotelRoomItemImageWrapper}>
+                        <Image 
+                            src={'/hotel/preview/parnas/room/deluxe/image1.jpg'} 
+                            alt="이미지 1" 
+                            fill
+                            className={styles.hotelRoomItemImage}
+                        />
+                    </div>
+                    <p className={styles.hotelRoomItemName}>딜럭스 킹 오션뷰</p>
                     <div className={styles.hotelRoomInfoListWrapper}>
                         <div className={styles.hotelRoomInfoItemWrapper}>
                             <Image src={ParkingSvg} alt="무료 주차"/>무료 셀프 주차
@@ -223,13 +237,38 @@ export default function Detail({ id } : { id : string }) {
                         </div>
                         <div className={styles.hotelRoomInfoItemWrapper}>
                             <Image src='https://a.travel-assets.com/egds/marks/brands/hotels/loyalty.svg' width={20} height={20} alt="면적"/>
-                            <p>적립및 사용</p>
+                            <p>적립 및 사용</p>
                         </div>
+                        <div>
+                            <div className={styles.refundInfoWrapper}>
+                                <p className={styles.fullRefundAbailableText}>전액 환불 가능</p>
+                                <Image src={InfoSvg} alt="정보"/>
+                            </div>
+                            <p className={styles.refundDeadLine}>10월 30일(목) 전까지</p>
+                        </div>
+                        <div className={styles.detailInfoWrapper}>
+                            <p className={styles.detailInfoText}>자세히 보기</p>
+                            <ArrowImage/>
+                        </div>
+                        <div>
+                            <p className={styles.discountInfo}>5% 할인</p>
+                            <div className={styles.priceInfoWrapper}>
+                                <p className={styles.originalPrice}>￦ {a.toLocaleString()}</p>
+                                <p className={styles.salePrice}>￦ {b.toLocaleString()}</p>
+                            </div>
+                            <div>
+                                <p>총 요금: ￦2,448,435 </p>
+                            </div>
+                            <p>세금 및 수수료 포함</p>
+                        </div>
+                        <button className={styles.reservationButton} 
+                           >예약하기
+                        </button>
                     </div>
                 </div>
-                <div style={{ borderRadius : '20px', backgroundColor : '#d3d3d3', height : '300px'}}>
+                <div style={{ borderRadius : '20px', backgroundColor : '#d3d3d3'}}>
                 </div>
-                <div style={{ borderRadius : '20px', backgroundColor : '#c8c8c8', height : '300px'}}>
+                <div style={{ borderRadius : '20px', backgroundColor : '#c8c8c8'}}>
                 </div>
             </div>
             {/* <div 
