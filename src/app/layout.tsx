@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+// import "./reset.css";
 import "./globals.css";
 import localFont from 'next/font/local';
 import { ApolloWrapper } from "./ApolloWrapper";
-import Header from "./components/Header";
 import OAuthProvider from "./OAuthProvider";
 import HeaderWrapper from "./components/HeaderWrapper";
 

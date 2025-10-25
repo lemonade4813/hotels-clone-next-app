@@ -346,3 +346,19 @@
     color : #FFF;
     font-Size : 18px
 }
+
+.overviewAreaWrapper{
+    display : flex;
+}
+
+.overviewText{
+    width : 30%;
+    font-size : 30px;
+}
+
+.overviewListWrapper{
+    flex : 1;
+    display : grid;
+    grid-template-columns : 1fr 1fr;
+    column-gap : 40px;
+}

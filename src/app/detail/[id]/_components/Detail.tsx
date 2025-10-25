@@ -20,6 +20,7 @@ import PersonSvg from '@/app/assets/common/person.svg';
 import CheckSvg from '@/app/assets/common/check.svg';
 import WifiSvg from '@/app/assets/common/wifi.svg';
 import InfoSvg from '@/app/assets/common/info.svg';
+import OverviewItem from '../OverviewItem';
 
 
 export default function Detail({ id } : { id : string }) {
@@ -279,6 +280,15 @@ export default function Detail({ id } : { id : string }) {
                 }
             }>
             </div> */}
+            <div className={styles.overviewAreaWrapper}>
+                <p className={styles.overviewText}>한눈에 살펴보기</p>
+                <div className={styles.overviewListrapper}>
+                    <OverviewItem/>
+                    <OverviewItem/>
+                    <OverviewItem/>
+                    <OverviewItem/>
+                </div>
+            </div>
             <div style={{height : '800px', background : 'blue'}} 
                 ref={(el) => {
                     if(el)
