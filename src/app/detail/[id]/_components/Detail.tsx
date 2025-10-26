@@ -20,6 +20,7 @@ import PersonSvg from '@/app/assets/common/person.svg';
 import CheckSvg from '@/app/assets/common/check.svg';
 import WifiSvg from '@/app/assets/common/wifi.svg';
 import InfoSvg from '@/app/assets/common/info.svg';
+import BuildingSvg from '@/app/assets/common/building.svg';
 import OverviewItem from '../OverviewItem';
 
 
@@ -272,27 +273,145 @@ export default function Detail({ id } : { id : string }) {
                 <div style={{ borderRadius : '20px', backgroundColor : '#c8c8c8'}}>
                 </div>
             </div>
-            {/* <div 
-                style={{height : '800px', background : 'red'}} 
-                ref={(el) => {
-                    if(el)
-                    sectionRefs.current[1] = el;
-                }
-            }>
-            </div> */}
+          
             <div className={styles.overviewAreaWrapper}>
                 <p className={styles.overviewText}>한눈에 살펴보기</p>
-                <div className={styles.overviewListrapper}>
+                <div className={styles.overviewListWrapper}>
                     <OverviewItem/>
                     <OverviewItem/>
                     <OverviewItem/>
                     <OverviewItem/>
                 </div>
             </div>
+            <div style={{ display : 'flex' }}>
+                <div style={{width : '30%'}}>
+                    <p style={{ fontSize : '30px'}}>장애인 지원</p>
+                    <p>장애인 편의 시설 관련 특별 요청이 있으신 경우, 예약 후 받은 예약 확인 메일에 나와 있는 정보로 숙박 시설에 문의해 주세요.</p>
+                </div>
+                <div style={{ 
+                        flex : 1, 
+                        display : 'grid', 
+                        gridTemplateColumns : '1fr 1fr', 
+                        columnGap : '40px'
+                }}>
+                    <OverviewItem/>
+                    <OverviewItem/>
+                </div>
+            </div>
+            <div style={{ display : 'flex' }}>
+                <div style={{width : '30%'}}>
+                    <p style={{ fontSize : '30px' }}>장애인 지원</p>
+                </div>
+                <div style={{ flex : 1, marginLeft : '20px' }}>
+                    <p>기타 선택 사항</p>
+                    <ul>
+                        <li style={{ listStyleType : 'disc' }}>뷔페 아침 식사: 
+                            성인 KRW 70000 ~ 70000, 
+                            어린이 KRW 35000 ~ 35000의 
+                            추가 요금으로 이용 가능(대략적인 금액) 
+                        </li>
+                    </ul>
+                    <p>아동 및 추가 침대</p>
+                    <ul>
+                        <li style={{ listStyleType : 'disc' }}>간이 침대: 
+                            KRW 60500.0의 요금으로 이용 가능(1일 기준)
+                        </li>
+                        <li>키즈 클럽: 추가 요금으로 이용 가능</li>
+                    </ul>
+                    <p>정책</p>
+                    <p>이 숙박 시설에는 어린이에게 적합하지 않을 수 있는 발코니, 파티오, 테라스와 같은 야외 공간이 있습니다. 이 부분이 염려되시면 도착 전에 숙박 시설에 연락하여 적합한 객실을 이용할 수 있는지 확인하시기 바랍니다.
+                        일산화탄소 감지기, 소화기, 연기 감지기, 보안 시스템, 구급상자, 방범창 등 시설 내에 고객이 안심하고 숙박할 수 있는 환경이 갖춰져 있습니다.
+                        이 숙박 시설에서 사용 가능한 결제 수단은 신용카드, 직불카드, 현금입니다.
+                        결제 가능한 신용카드: Visa, Mastercard, American Express, Diners Club, JCB International
+                        현금 없이 결제 옵션을 이용하실 수 있습니다.
+                        고객 정책과 문화적 기준이나 규범은 국가 및 숙박 시설에 따라 다를 수 있습니다. 명시된 정책은 숙박 시설에서 제공했습니다.
+                        수영장은 예약 시에만 이용하실 수 있습니다. 체크인 시 프런트 데스크에서 시간대를 예약해 주시기 바랍니다.
+                    </p>
+                    <p>이곳의 다른 이름</p>
+                    <p>Parnas Hotel Jeju Hotel</p>
+                    <p>Parnas Hotel Jeju Seogwipo</p>
+                    <p>Parnas Hotel Jeju Hotel Seogwipo</p>
+                </div>
+            </div>
+            <div>
+                <div style={{ width : '30%' }}>
+                    <p style={{ fontSize : '30px' }}>자주 묻는 질문(FAQ)</p>
+                </div>
+                <ul>
+                    <li>
+                        <div className={styles.faqItem}>
+                            <ArrowImage/>
+                            <p className={styles.faqAnswer}>파르나스 호텔 제주에 수영장이 있나요?</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div className={styles.faqItem}>
+                            <ArrowImage/>
+                            <p className={styles.faqAnswer}>파르나스 호텔 제주에 반려동물 동반이 가능한가요?</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div className={styles.faqItem}>
+                            <ArrowImage/>
+                            <p className={styles.faqQuestion}>파르나스 호텔 제주에 주차장이 있나요?</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div className={styles.faqItem}>
+                            <ArrowImage/>
+                            <p className={styles.faqQuestion}>파르나스 호텔 제주에 수영장이 있나요?</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div className={styles.faqItem}>
+                            <ArrowImage/>
+                            <p className={styles.faqQuestion}>파르나스 호텔 제주의 체크인 시간과 체크아웃 시간은 언제인가요?</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div className={styles.faqItem}>
+                            <ArrowImage/>
+                            <p className={styles.faqQuestion}>파르나스 호텔 제주 안에 카지노가 있나요?</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div className={styles.faqItem}>
+                            <ArrowImage/>
+                            <p className={styles.faqQuestion}>파르나스 호텔 제주 및 인근에서 즐길만한 것은 무엇인가요?</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div className={styles.faqItem}>
+                            <ArrowImage/>
+                            <p className={styles.faqQuestion}>파르나스 호텔 제주 내 또는 인근에 레스토랑이 있나요?</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div className={styles.faqItem}>
+                            <ArrowImage/>
+                            <p className={styles.faqQuestion}>파르나스 호텔 제주에는 전용 야외 공간이 있나요?</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div className={styles.faqItem}>
+                            <ArrowImage/>
+                            <p className={styles.faqQuestion}>파르나스 호텔 제주 주변에는 무엇이 있나요?</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
             <div style={{height : '800px', background : 'blue'}} 
                 ref={(el) => {
                     if(el)
                     sectionRefs.current[2] = el;
+                }
+            }>
+            </div>
+              <div 
+                style={{height : '800px', background : 'red'}} 
+                ref={(el) => {
+                    if(el)
+                    sectionRefs.current[1] = el;
                 }
             }>
             </div>

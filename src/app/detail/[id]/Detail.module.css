@@ -362,3 +362,12 @@
     grid-template-columns : 1fr 1fr;
     column-gap : 40px;
 }
+
+.faqItem{
+    display: flex;
+}
+
+.faqQuestion{
+    font-size : 16px;
+    font-weight: 500;
+}
