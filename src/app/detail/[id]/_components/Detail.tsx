@@ -22,6 +22,10 @@ import WifiSvg from '@/app/assets/common/wifi.svg';
 import InfoSvg from '@/app/assets/common/info.svg';
 import BuildingSvg from '@/app/assets/common/building.svg';
 import OverviewItem from '../OverviewItem';
+import FaqItem from '../FaqItem';
+import FaqList from '../FaqList';
+import CarouselContainer from '@/app/components/CarouselContainer';
+import ReviewItem from '../ReviewItem';
 
 
 export default function Detail({ id } : { id : string }) {
@@ -95,6 +99,9 @@ export default function Detail({ id } : { id : string }) {
       const a = 1000000;
       const b = 1200000;
 
+      const reviewNum = 120;
+
+   
     return (
         <div className={styles.container}>
              <div className={styles.hotelImageWrapper}>
@@ -333,72 +340,25 @@ export default function Detail({ id } : { id : string }) {
                     <p>Parnas Hotel Jeju Hotel Seogwipo</p>
                 </div>
             </div>
-            <div>
+            <div style={{display : 'flex'}}>
                 <div style={{ width : '30%' }}>
                     <p style={{ fontSize : '30px' }}>자주 묻는 질문(FAQ)</p>
                 </div>
-                <ul>
-                    <li>
-                        <div className={styles.faqItem}>
-                            <ArrowImage/>
-                            <p className={styles.faqAnswer}>파르나스 호텔 제주에 수영장이 있나요?</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className={styles.faqItem}>
-                            <ArrowImage/>
-                            <p className={styles.faqAnswer}>파르나스 호텔 제주에 반려동물 동반이 가능한가요?</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className={styles.faqItem}>
-                            <ArrowImage/>
-                            <p className={styles.faqQuestion}>파르나스 호텔 제주에 주차장이 있나요?</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className={styles.faqItem}>
-                            <ArrowImage/>
-                            <p className={styles.faqQuestion}>파르나스 호텔 제주에 수영장이 있나요?</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className={styles.faqItem}>
-                            <ArrowImage/>
-                            <p className={styles.faqQuestion}>파르나스 호텔 제주의 체크인 시간과 체크아웃 시간은 언제인가요?</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className={styles.faqItem}>
-                            <ArrowImage/>
-                            <p className={styles.faqQuestion}>파르나스 호텔 제주 안에 카지노가 있나요?</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className={styles.faqItem}>
-                            <ArrowImage/>
-                            <p className={styles.faqQuestion}>파르나스 호텔 제주 및 인근에서 즐길만한 것은 무엇인가요?</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className={styles.faqItem}>
-                            <ArrowImage/>
-                            <p className={styles.faqQuestion}>파르나스 호텔 제주 내 또는 인근에 레스토랑이 있나요?</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className={styles.faqItem}>
-                            <ArrowImage/>
-                            <p className={styles.faqQuestion}>파르나스 호텔 제주에는 전용 야외 공간이 있나요?</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className={styles.faqItem}>
-                            <ArrowImage/>
-                            <p className={styles.faqQuestion}>파르나스 호텔 제주 주변에는 무엇이 있나요?</p>
-                        </div>
-                    </li>
-                </ul>
+                <FaqList/>
+            </div>
+            <div style={{display : 'flex'}}>
+                <div style={{ width : '30%' }}>
+                    <p style={{ fontSize : '30px' }}>9.2/10</p>
+                    <p style={{ fontSize : '30px' }}>매우 훌륭해요</p>
+                    <p style={{ fontSize : '30px' }}>실제 이용 고객 후기 {reviewNum}개 <Image src={InfoSvg} alt="안내"></Image></p>
+                </div>
+                <div>
+                    <CarouselContainer>
+                        <ReviewItem/>
+                        <ReviewItem/>
+                        <ReviewItem/>
+                    </CarouselContainer>
+                </div>
             </div>
             <div style={{height : '800px', background : 'blue'}} 
                 ref={(el) => {

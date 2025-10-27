@@ -362,8 +362,14 @@
     grid-template-columns : 1fr 1fr;
     column-gap : 40px;
 }
-
+.faqItemWrapper{
+    
+}
 .faqItem{
+    /* display: flex; */
+}
+
+.faqQuestionWrapper{
     display: flex;
 }
 
