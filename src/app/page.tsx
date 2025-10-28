@@ -11,6 +11,7 @@ import SuggestionMenu from "./components/SuggestionMemu";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import GoogleMap from "./components/GoogleMap";
+import Footer from "./components/Nav";
 
 
 // const GoogleMap = dynamic(() => import("@/app/components/GoogleMap"), {
@@ -103,6 +104,7 @@ export default function Home() {
         </CarouselContainer>
  
       </main>
+
     </>
   );
 }

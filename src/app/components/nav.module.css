@@ -1,0 +1,23 @@
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap : 30px;
+    margin-top : 30px;
+}
+
+
+.menu li{
+    font-size : 14px;
+    color : #1668E3;
+}
+
+.title {
+    color : #191E3B;
+    font-size : 14px;
+    margin-top: 40px;
+}
+
+.navWrapper{
+    display: flex;
+    justify-content: space-between;
+}
