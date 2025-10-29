@@ -7,6 +7,7 @@ import OAuthProvider from "./OAuthProvider";
 import HeaderWrapper from "./components/HeaderWrapper";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import Calendar from "./Calendar";
 
 const pretendard = localFont({src : './fonts/PretendardVariable.woff2',
                               variable : '--font-prentendard',

@@ -1,0 +1,25 @@
+.footerWrapper{
+    display : flex;
+    background-color : #F8F3E7; 
+    flex-Direction : column;
+    justify-content : center;
+    padding-left : 400px;
+    padding-right: 400px;
+    box-sizing : border-box;
+    padding-top : 40px;
+}
+
+
+.notice{
+    text-align: center;
+    margin: 1px;
+    color : #191E3B;
+    font-size : 12px;
+}
+
+.address{
+    font-style : normal;
+    text-align: center;
+    font-size : 12px;
+    color : #191E3B;
+}
