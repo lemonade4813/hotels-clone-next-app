@@ -9,7 +9,7 @@ export default function FaqItem({ answer, question } : { item : string , answer 
     return (
         <div className={styles.faqItemWrapper}>
             <div className={styles.faqQuestionWrapper} onClick={()=>setIsToggled(prev => !prev)}>
-                <ArrowImage2 isToggled={isToggled}/>
+                <ArrowImage2 rotateDeg={isToggled ? 0 : 180}/>
                 <p className={styles.faqQuestion}>{question}</p>
             </div>
             <p className={isToggled ? styles.faqToggled : styles.faqAnswer}>{answer}</p>

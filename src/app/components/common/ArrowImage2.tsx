@@ -2,10 +2,10 @@ import React from 'react'
 
 export default function ArrowImage2({
   fill,
-  isToggled,
+  rotateDeg
 }: {
   fill?: string
-  isToggled: boolean
+  rotateDeg: number
 }) {
   return (
     <svg
@@ -18,7 +18,7 @@ export default function ArrowImage2({
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       style={{
-        transform: isToggled ? 'rotate(180deg)' : 'rotate(0deg)',
+        transform: `rotate(${rotateDeg}deg)`,
         transition: 'transform 0.3s ease',
       }}
     >

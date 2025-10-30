@@ -34,6 +34,7 @@ export default function RootLayout({
           <ApolloWrapper>{children}</ApolloWrapper>
           <Nav/>
           <Footer/>
+          <Calendar/>
         </OAuthProvider>
       </body>
     </html>

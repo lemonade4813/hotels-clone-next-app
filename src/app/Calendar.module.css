@@ -1,7 +1,6 @@
   .container {
     width: 280px;
     margin: 0 auto;
-    font-family: sans-serif;
   }
   
   .week {
@@ -41,4 +40,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .changeMonthButton{
+    width : 36px;
+    height : 36px;
+    box-shadow : 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    border-radius : 999px;
+    border : none;
+    background-color : transparent;
+  }
+
+  .calendarHeader{
+    display : flex;
+    align-items : center;
+    justify-content : space-between;
   }
