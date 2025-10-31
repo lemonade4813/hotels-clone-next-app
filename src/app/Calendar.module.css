@@ -22,6 +22,9 @@
     justify-content: center;
     box-sizing: border-box;
     cursor: pointer;
+    position: relative;
+    margin-bottom: 2px;
+    font-size: 13px;
   }
   
   /* 일요일: 빨간색 */
@@ -29,30 +32,66 @@
     color: red;
   }
   
-  /* 오늘 날짜: 파란색 배경 + 흰색 글씨 */
+  /* 오늘 날짜 */
   .today {
     background-color: #007bff;
     color: white;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     margin: 5px auto;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-
-  .changeMonthButton{
-    width : 36px;
-    height : 36px;
-    box-shadow : 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    border-radius : 999px;
-    border : none;
-    background-color : transparent;
+  
+  /* 선택된 시작/끝 날짜 */
+  .selected {
+    background-color: #0056d6;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 5px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
   }
-
-  .calendarHeader{
-    display : flex;
-    align-items : center;
-    justify-content : space-between;
+  
+  /* 범위 구간 전체 배경 */
+  .range {
+    background-color: #d9f2ff;
+    border-radius: 0;
+    position: relative;
+  }
+  
+  /* 범위의 첫째날(왼쪽 끝 둥글게) */
+  .rangeStart {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+  
+  /* 범위의 마지막날(오른쪽 끝 둥글게) */
+  .rangeEnd {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  
+  /* 달 변경 버튼 */
+  .changeMonthButton {
+    width: 36px;
+    height: 36px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
+    border-radius: 999px;
+    border: none;
+    background-color: transparent;
+  }
+  
+  .calendarHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
   }
