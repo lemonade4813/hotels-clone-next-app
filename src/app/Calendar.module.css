@@ -1,5 +1,5 @@
   .container {
-    width: 280px;
+    width: 560px;
     margin: 0 auto;
   }
   
@@ -94,4 +94,9 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 8px;
+  }
+
+  .calendarGroupWrapper{
+    display : flex;
+    gap : 20px;
   }
