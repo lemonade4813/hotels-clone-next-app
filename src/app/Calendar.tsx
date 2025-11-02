@@ -3,7 +3,8 @@
 import { useReducer, useState } from "react";
 import styles from "./Calendar.module.css";
 import ArrowImage2 from "./components/common/ArrowImage2";
-import Month from "./Month";
+import MonthCalendar from "./Month";
+
 
 interface SelectedDate {
   year: number;
@@ -62,45 +63,73 @@ export default function Calendar() {
     });
   };
 
+  // 부모에서 rangeStart / rangeEnd 계산
+  const rangeStart =
+    clickedDates.length > 0
+      ? new Date(Math.min(...clickedDates.map((d) => d.getTime())))
+      : null;
+
+  const rangeEnd =
+    clickedDates.length > 0
+      ? new Date(Math.max(...clickedDates.map((d) => d.getTime())))
+      : null;
+
+  // 한국어 요일 및 포맷 함수
+  const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
+  const formatKoreanDate = (d: Date) => {
+    const month = d.getMonth() + 1;
+    const date = d.getDate();
+    const weekday = weekdays[d.getDay()];
+    return `${month}월 ${date}일 (${weekday})`;
+  };
+
+  // 화면에 표시할 문자열 생성
+  const selectedRangeText = (() => {
+    if (!rangeStart) return "선택된 날짜가 없습니다.";
+    if (!rangeEnd) return formatKoreanDate(rangeStart); // 사실상 rangeEnd 항상 존재하지만 안전성 위해
+    if (rangeStart.getTime() === rangeEnd.getTime()) return formatKoreanDate(rangeStart);
+    return `${formatKoreanDate(rangeStart)} → ${formatKoreanDate(rangeEnd)}`;
+  })();
+
   return (
-        <div className={styles.container}>
-            <div className={styles.calendarHeader}>
-                <button
+    <div className={styles.container}>
+        <div className={styles.calendarHeader}>
+            <button
                 className={styles.changeMonthButton}
                 onClick={() => dispatch({ type: "PREV_MONTH" })}
-                >
+            >
                 <ArrowImage2 rotateDeg={90} />
-                </button>
-                <p>
-                <strong>
-                    {year}년 {month}월 ~{" "}
-                    {month === 12 ? `${year + 1}년 1월` : `${year}년 ${month + 1}월`}
-                </strong>
-                </p>
-                <button
+            </button>
+            {/* 선택 범위 표시 (부모에서) */}
+            <p className={styles.rangeText}>
+                {selectedRangeText}
+            </p>
+            <button
                 className={styles.changeMonthButton}
                 onClick={() => dispatch({ type: "NEXT_MONTH" })}
-                >
+            >
                 <ArrowImage2 rotateDeg={-90} />
-                </button>
-            </div>
-        {/* 연속 2달 */}
-            <div className={styles.calendarGroupWrapper}>
-                <Month
-                    year={year}
-                    month={month}
-                    today={today}
-                    clickedDates={clickedDates}
-                    onDayClick={handleDayClick}
-                />
-                <Month
-                    year={month === 12 ? year + 1 : year}
-                    month={month === 12 ? 1 : month + 1}
-                    today={today}
-                    clickedDates={clickedDates}
-                    onDayClick={handleDayClick}
-                />
-            </div>
+            </button>
         </div>
-    );
-}
+
+     
+
+      {/* 연속 2달 */}
+      <div className={styles.calendarGroupWrapper}>
+        <MonthCalendar
+          year={year}
+          month={month}
+          today={today}
+          clickedDates={clickedDates}
+          onDayClick={handleDayClick}
+        />
+        <MonthCalendar
+          year={month === 12 ? year + 1 : year}
+          month={month === 12 ? 1 : month + 1}
+          today={today}
+          clickedDates={clickedDates}
+          onDayClick={handleDayClick}
+        />
+      </div>
+    </div>
+  )};

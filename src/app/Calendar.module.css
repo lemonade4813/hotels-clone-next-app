@@ -96,7 +96,16 @@
     margin-bottom: 8px;
   }
 
+  .rangeText{
+    font-weight: 600; 
+    text-align: left; 
+    margin-bottom: 10; 
+    flex : 1; 
+    margin-left : 20px;  
+  }
+
   .calendarGroupWrapper{
-    display : flex;
-    gap : 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
   }
