@@ -13,6 +13,8 @@ import dynamic from "next/dynamic";
 import GoogleMap from "./components/GoogleMap";
 import Footer from "./components/Nav";
 import Calendar from "./Calendar";
+import Search from "./search/[keyword]/page";
+import SearchOptionSelector from "./components/SearchOptionSelector";
 
 
 // const GoogleMap = dynamic(() => import("@/app/components/GoogleMap"), {
@@ -64,13 +66,14 @@ export default function Home() {
                   <p>인천, 한국</p>
                 </div>
               </div>
-              <div className={styles.bannerCriteriaItemContainer}>
+              {/* <div className={styles.bannerCriteriaItemContainer}>
                 <Image src={calendar} alt="달력 이미지" />
                 <div className={styles.criteriaField}>
                   <p>언제 떠나세요?</p>
                   <p>4월 30일 - 5월 2일</p>
                 </div>
-              </div>
+              </div> */}
+              <SearchOptionSelector/>
               <div className={styles.bannerCriteriaItemContainer}>
                 <Image src={person} alt="인원 수 이미지" />
                 <div className={styles.criteriaField}>

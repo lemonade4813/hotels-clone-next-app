@@ -1,0 +1,10 @@
+.tabButton{
+    background-color: #F8F3E7;
+    flex : 1;
+    border : none;
+    height: 48px;
+}
+
+.tabButtonWrapper{
+    display: flex;
+}

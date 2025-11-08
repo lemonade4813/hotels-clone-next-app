@@ -1,6 +1,8 @@
   .container {
     width: 560px;
     margin: 0 auto;
+    z-index: 99999;
+    background-color: #FFF;
   }
   
   .week {
