@@ -1,13 +1,6 @@
 @use '@/app/common';
 
 
-.container{
-    max-width: 1200px;
-    width: 100%;
-    margin : 0 auto;
-
-}
-
 .searchOption{
     width : 100%;
     display : flex;
@@ -59,8 +52,6 @@
 
 .mainContainer{
     flex : 1;
-    background-color : #c8facb;
-    max-width: 800px;
 }
 
 .hotelInfoContainer{
@@ -68,6 +59,21 @@
     cursor : pointer; 
     height : 200px; 
     box-sizing : border-box;
+    margin-bottom: 20px;
+}
+
+.hotelDetailInfo{
+    width : 60%;
+    padding : 10px;
+    display : flex;
+    flex-direction : column;
+    gap : 16px;
+}
+
+.ratingWrapper{
+    display : flex;
+    align-items : center;
+    gap : 10px;
 }
 
 .hotelImage{
@@ -81,7 +87,7 @@
     border : 1px solid #d3d3d3;
     flex : 1;
     padding : 10px;
-    box-sizing : border-box;
+    display: flex;
 }
 
 .rating{
@@ -97,8 +103,8 @@
 .priceInfoWrapper{
     display : flex;
     flex-direction : column;
-    justify-content : space-around;
-    align-items : flex-end;
+    align-items: flex-end;
+    justify-content : flex-end;
     flex : 1
 }
 
@@ -106,6 +112,7 @@
     display : flex;
     align-items : flex-end;
     flex-direction : column;
+    gap : 8px;
 }
 
 .salePrice{

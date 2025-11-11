@@ -215,13 +215,13 @@ export default function SearchResult({ keyword } : { keyword : string}) {
                         />      
                     </div> 
                 </div>       
-                <div>
-                <NoticeDiscount 
-                  noticeText="10박을 숙박하면 리워드 1박을 드려요!" 
-                  buttonText="로그인하기" 
-                  noticeType="reward"
-                />
-                <AccomList filteredResults={filteredResults} />
+                <div style={{ marginLeft : '20px'}}>
+                  <NoticeDiscount 
+                    noticeText="10박을 숙박하면 리워드 1박을 드려요!" 
+                    buttonText="로그인하기" 
+                    noticeType="reward"
+                  />
+                  <AccomList filteredResults={filteredResults} />
                 </div>
             </div>
         </div>

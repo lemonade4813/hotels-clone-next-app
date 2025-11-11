@@ -74,15 +74,19 @@
 
 .minMaxItemWrapper {
   border-radius: 12px;
-  border: 2px solid #000;
+  border: 2px solid #818494;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap : 10px;
   padding-left: 10px;
   height: 60px;
   box-sizing: border-box;
 }
 
 .minMaxText{
-  font-size : 14px;
+  font-size : 16x;
   line-height: 10px;
 }
 

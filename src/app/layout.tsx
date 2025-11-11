@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-// import "./reset.css";
+import "./reset.css";
 import "./globals.css";
 import localFont from 'next/font/local';
 import { ApolloWrapper } from "./ApolloWrapper";
@@ -8,6 +8,7 @@ import HeaderWrapper from "./components/HeaderWrapper";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Calendar from "./Calendar";
+import styles from "./layout.module.css";
 
 const pretendard = localFont({src : './fonts/PretendardVariable.woff2',
                               variable : '--font-prentendard',
@@ -29,13 +30,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={pretendard.className}>
       <body>
-        <OAuthProvider>
-        <HeaderWrapper/>
-          <ApolloWrapper>{children}</ApolloWrapper>
-          <Nav/>
-          <Footer/>
-          <Calendar/>
-        </OAuthProvider>
+        <div className={styles.container}>
+          <OAuthProvider>
+          <HeaderWrapper/>
+            <ApolloWrapper>{children}</ApolloWrapper>
+            <Nav/>
+            <Footer/>
+            {/* <Calendar/> */}
+          </OAuthProvider>
+        </div>
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import styles from './nav.module.css';
+import styles from './Nav.module.css';
 import Link from 'next/link';
 
 export default function Nav() {

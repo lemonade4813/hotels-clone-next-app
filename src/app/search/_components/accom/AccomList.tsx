@@ -37,16 +37,15 @@ export default function AccomList({ filteredResults } : { filteredResults : ISea
                         alt="호텔 이미지" 
                         className={styles.hotelImage}/>
                     <div className={styles.hotelInfoRight}>
-                        <div style={{display : 'flex',  boxSizing : 'border-box'}}>
-                        <div style={{width : '300px', padding : '10px'}}>
+                        <div className={styles.hotelDetailInfo}>
                             <p style={{fontSize : '24px'}}>{result?.name}</p>
                             <p>{result?.city}</p>
                             {result.isFullRefund && <p style={{ color : 'green'}}>전액환불 가능</p>}
-                            <div style={{display : 'flex', alignItems :'center', gap : '10px'}}>
+                            <div className={styles.ratingWrapper}>
                                 <p className={styles.rating}>{result?.rating}</p>
                                 <p>{getCommentByRating(Number(result?.rating))}</p>
                             </div>
-                        </div>
+                        </div>   
                         <div className={styles.priceInfoWrapper}>
                             <label htmlFor="compare"> <input id = "compare" type="checkbox"/>비교</label>
                             <div className={styles.priceInfo}>
@@ -70,7 +69,7 @@ export default function AccomList({ filteredResults } : { filteredResults : ISea
                             </div>
                         </div>
                     </div>
-                </div>
+          
             )}
             </div>
   )
