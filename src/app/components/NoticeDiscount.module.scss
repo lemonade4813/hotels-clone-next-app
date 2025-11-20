@@ -1,7 +1,6 @@
 @use '@/app/common';
 
 
-
 @mixin container($width){
 
     border-radius : 16px;
@@ -15,8 +14,8 @@
     padding : 16px;
     gap : 20px;
     margin-bottom: 20px;
-
 }
+
 
 .rewardContainer{
     @include container(800px);
@@ -26,6 +25,12 @@
     @include container(1200px);
 }
 
+@media screen and (max-width: 767px) {
+    .rewardContainer,
+    .discountContainer {
+        display: none;
+    }
+}
 
 .text{
     color : #fff;

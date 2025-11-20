@@ -6,6 +6,7 @@ import download from "@/app/assets/download.svg";
 import LoginModal from './LoginModal';
 import Link from 'next/link';
 import CommcenterImg from './common/CommcenterImage';
+import ArrowImage2 from './common/ArrowImage2';
 
 export default function Header() {
   return (
@@ -14,7 +15,10 @@ export default function Header() {
           <h1>
             <Link href="/"><Image src={logo} alt="호텔스 닷컴 로고 이미지"/></Link>
           </h1>
-          <p>여행 예약</p>
+          <div className={styles.reservationWithIcon}>
+            <p>여행 예약</p>
+            <ArrowImage2 rotateDeg={270}/>
+          </div>
           <ul className={styles.reservationDetail}>
             <li>렌터카</li>
             <li>특가 상품</li>
@@ -26,7 +30,7 @@ export default function Header() {
             <Image src={download} alt="앱 다운로드 이미지"/>
             앱 다운 받기
           </button>
-          <nav>
+          <nav className={styles.nav}>
             <ul className={styles.navMenu}>
               <li>KRW</li>
               <li>숙박시설 등록</li>

@@ -11,15 +11,12 @@ export default function SearchOptionSelector() {
     const [open, setOpen] = useState(false);
 
     return (
-        <div    
-            className={styles.bannerCriteriaItemContainer} 
-            style={{ position: 'relative' }}>
-            <div onClick={() => setOpen(prev => !prev)}>
-                <Image src={calendar} alt="달력 이미지" />
-                <div className={styles.criteriaField}>
-                    <p>언제 떠나세요?</p>
-                    <p>4월 30일 - 5월 2일</p>
-                </div>
+        <div onClick={() => setOpen(prev => !prev)}
+            className={styles.bannerCriteriaItemContainer}>
+            <Image src={calendar} alt="달력 이미지" />
+            <div className={styles.criteriaField}>
+                <p>언제 떠나세요?</p>
+                <p>4월 30일 - 5월 2일</p>
             </div>
             {open && (
                 <div style={{ position: 'absolute' }}>

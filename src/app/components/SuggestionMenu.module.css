@@ -1,10 +1,15 @@
 .itemContainer {
     display : flex;
     flex : 1;
+    align-items: center;
 }
 
 .suggestionMenuLeft {
-
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap : 8px;
     background-color : #f8f3e7;
     flex : 1;
     border-top-left-radius: 16px;
@@ -23,4 +28,14 @@
     width : 1200px;
     gap : 40px;
     margin-top : 20px;
+}
+
+@media screen and (max-width : 767px) {
+    .menuContainer{
+        width: 100%;
+        margin-left: 80px;
+        margin-right: 80px;
+        flex-direction : column;
+        box-sizing: border-box;
+    }
 }

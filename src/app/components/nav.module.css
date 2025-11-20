@@ -33,3 +33,9 @@
     padding-bottom: 40px;
     border-bottom : 2px solid #DFE0E4;
 }
+
+@media screen and (max-width : 767px) {
+    .navWrapper{
+        flex-direction: column;
+    }
+}
