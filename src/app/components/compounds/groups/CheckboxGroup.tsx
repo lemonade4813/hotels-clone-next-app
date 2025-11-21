@@ -23,7 +23,7 @@ export default function CheckBoxGroup({
 }) {
   return (
     <div>
-      <h4>{title}</h4>
+      <h4 style={{ marginBottom : '8px' }}>{title}</h4>
       <div role="group" aria-label={title}>
         {list.map((item) => (
           <div className={style.checkboxWrapper}>

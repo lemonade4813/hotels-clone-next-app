@@ -14,7 +14,24 @@
     display : flex;
     align-items : center;
     box-sizing : border-box;
+}
 
+@media screen and (max-width : 767px) {
+    .searchOptionContainer{
+        display : none;
+    }
+}
+
+.filteringCriteriaText {
+    font-size : 20px;
+    margin-bottom : 20px;
+    margin-top : 20px;
+}
+
+.searchByNameText{
+    font-size : 20px;
+    margin-bottom : 20px;
+    margin-top : 20px;
 }
 
 .searchOptionItem{
@@ -44,10 +61,17 @@
     display : flex;
 }
 
+
+
 .asideContainer{
     width : 300px;
-    background-color : #ffffe0;
     padding: 10px;
+}
+
+@media screen and (max-width : 767px) {
+    .asideContainer{
+        display: none;
+    }
 }
 
 .mainContainer{
@@ -61,6 +85,14 @@
     box-sizing : border-box;
     margin-bottom: 20px;
 }
+
+@media screen and (max-width : 767px) {
+    .hotelInfoContainer{
+        height: 280px;
+    }
+}
+
+
 
 .hotelDetailInfo{
     width : 60%;
@@ -76,6 +108,23 @@
     gap : 10px;
 }
 
+
+.hotelImageWrapper{
+    width : 200px;
+    height: 200px;
+    position : relative;
+}
+
+
+
+@media screen and (max-width : 767px) {
+    .hotelImageWrapper{
+        height : 280px;
+        flex : 1;
+        object-fit : fill;
+    }
+}
+
 .hotelImage{
     border-top-left-radius : 24px; 
     border-bottom-left-radius : 24px;
@@ -88,6 +137,13 @@
     flex : 1;
     padding : 10px;
     display: flex;
+}
+
+@media screen and (max-width : 767px) {
+    .hotelInfoRight{
+        flex : 2;
+        flex-direction: column;
+    }
 }
 
 .rating{
@@ -176,6 +232,7 @@
     display : flex;
     flex-wrap : wrap;
     gap : 10px;
+    margin-top : 8px;
 }
 
 

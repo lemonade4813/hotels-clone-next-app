@@ -17,7 +17,7 @@ export default function Header() {
           </h1>
           <div className={styles.reservationWithIcon}>
             <p>여행 예약</p>
-            <ArrowImage2 rotateDeg={270}/>
+            <ArrowImage2 rotateDeg={0}/>
           </div>
           <ul className={styles.reservationDetail}>
             <li>렌터카</li>

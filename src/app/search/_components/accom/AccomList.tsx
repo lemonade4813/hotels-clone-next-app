@@ -31,11 +31,13 @@ export default function AccomList({ filteredResults } : { filteredResults : ISea
                 <div key={result.name} 
                      onClick={() => router.push(`/detail/${result._id}`)}
                      className={styles.hotelInfoContainer}>
-                    <Image src={result.imgUrl} 
-                        width={200} 
-                        height={200} 
-                        alt="호텔 이미지" 
-                        className={styles.hotelImage}/>
+                    <div className={styles.hotelImageWrapper}>   
+                        <Image src={result.imgUrl} 
+                               fill 
+                               alt="호텔 이미지" 
+                               className={styles.hotelImage}
+                        />
+                    </div>     
                     <div className={styles.hotelInfoRight}>
                         <div className={styles.hotelDetailInfo}>
                             <p style={{fontSize : '24px'}}>{result?.name}</p>

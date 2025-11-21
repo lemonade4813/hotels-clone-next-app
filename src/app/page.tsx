@@ -64,9 +64,7 @@ export default function Home() {
           noticeType="discount"
           />  
         <SuggestionMenu/>
-        <div style={{ width: '1200px' , overflow : 'hidden'}}>
-          <p>마음에 꼭 맞는 새로운 숙소 찾기</p>
-        </div>
+        <p style={{ fontSize : '24px', marginTop : '20px', marginBottom : '20px', flexFlow : 'left'}}>마음에 꼭 맞는 새로운 숙소 찾기</p>
         <CarouselContainer>
           {roomtypes.map(((rt, index) => 
           <Link href = {{pathname : `/search/${rt.keyword}`}} key={index}>

@@ -23,8 +23,8 @@ export default function RadioGroup({
     onChange: (key: keyof ICriteria, value: string) => void;
   }) {
     return(
-    <div>
-        <h4>{title}</h4>
+    <div style={{ marginTop : '20px', marginBottom : '20px'}}>
+        <h4 style={{ marginBottom : '8px'}}>{title}</h4>
         <div role="group" aria-label={title}>
         {list.map((item) => (
           <div className={style.radiobuttonWrapper}>

@@ -27,8 +27,8 @@ function FilteringByName({ value } : FilteringByNameProps) {
   }, [isOpen])
 
   return (
-    <div ref={filteringModalRef}>
-      <p>숙박 시설 이름으로 검색</p>
+    <div ref={filteringModalRef} style={{ borderTop : '1px solid #DFE0E4', marginTop : '20px'}}>
+      <p className={styles.searchByNameText}>숙박 시설 이름으로 검색</p>
       <p
           className={styles.searchField} 
           onClick={() => setIsOpen(!isOpen)}

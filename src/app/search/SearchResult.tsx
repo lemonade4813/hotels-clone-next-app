@@ -3,12 +3,9 @@
 import { gql, useSuspenseQuery } from "@apollo/client"
 import styles from "./Search.module.scss";
 import  { useCallback, useMemo, useState } from "react";
-import FilteringByAccomType from "./_components/filtering/FilteringByAccomType";
 import SearchOptions from "./_components/searchOptions/SearchOptions";
 import AccomList from "./_components/accom/AccomList";
-import FilteringByPopularKeyword from "./_components/filtering/FilteringByPopularKeyword";
 import FilteringByPrice from "./_components/filtering/FilteringByPrice";
-//import FilteringByAmenities from "./FilteringByAmenities";
 import FilteringByGrades from "./_components/filtering/FilteringByGrades"; 
 import FilteringByName from "./_components/filtering/FilteringByName";
 import NoticeDiscount from "../components/NoticeDiscount";
@@ -186,9 +183,8 @@ export default function SearchResult({ keyword } : { keyword : string}) {
                       handleCriteria = { handleCriteria } 
                       value={name}
                     />
-                    <div>
-                        <p>필터링 기준</p>
-                        {/* <FilteringByPopularKeyword /> */}
+                    <div style={{ borderTop : '1px solid #DFE0E4', marginTop : '20px'}}>
+                        <p className={styles.filteringCriteriaText}>필터링 기준</p>
                         <CheckboxGroup
                           title={popularKeywords.title}
                           list={popularKeywords.list}
@@ -203,12 +199,7 @@ export default function SearchResult({ keyword } : { keyword : string}) {
                            name={'accomType'}         
                            onChange={handleCriteria}
                         />
-                        {/* <FilteringByAccomType 
-                          handleCriteria = { handleCriteria } 
-                          value={accomType}
-                        /> */}
                         <FilteringByPrice/>
-                        {/* <FilteringByAmenities/> */}
                         <FilteringByGrades 
                           handleCriteria = { handleCriteria } 
                           value={grade}

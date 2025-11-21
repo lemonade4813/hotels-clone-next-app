@@ -14,11 +14,8 @@ interface FilteringByGradesProps {
 
 function FilteringByGrades({ handleCriteria, value } : FilteringByGradesProps) {
 
-  console.log("재렌더링 333")
-  console.log(value)
-
   return (
-    <div>
+    <div style={{ marginTop : '20px'}}>
         <span>숙박 시설 등급</span>
         <div className={styles.gradeContainer}>
             {grades.map((grade) => 
