@@ -6,7 +6,7 @@ import download from "@/app/assets/download.svg";
 import LoginModal from './LoginModal';
 import Link from 'next/link';
 import CommcenterImg from './common/CommcenterImage';
-import ArrowImage2 from './common/ArrowImage2';
+import ReservationMenu from './ReservationMenu';
 
 export default function Header() {
   return (
@@ -15,15 +15,7 @@ export default function Header() {
           <h1>
             <Link href="/"><Image src={logo} alt="호텔스 닷컴 로고 이미지"/></Link>
           </h1>
-          <div className={styles.reservationWithIcon}>
-            <p>여행 예약</p>
-            <ArrowImage2 rotateDeg={0}/>
-          </div>
-          <ul className={styles.reservationDetail}>
-            <li>렌터카</li>
-            <li>특가 상품</li>
-            <li>Hotels.com™ 호텔스닷컴 리워드</li>
-          </ul>
+          <ReservationMenu/>
         </div>
         <div className={styles.header}>
           <button className={styles.download}>

@@ -24,7 +24,9 @@
     align-items: center;
     gap : 4px;
     cursor : pointer;
+    position: relative;
 }
+
 
 @media screen and (max-width : 767px){
     .nav{
@@ -43,6 +45,21 @@
 
 .reservation{
     display: none;
+}
+
+.reservationMenuList{
+    position: absolute;
+    background-color: #f8f3e7;
+    border-radius: 12px;
+    top : 40px;
+    width: 300px;
+    z-index: 9999;
+    padding: 20px;
+
+    li {
+        line-height: 48px;
+        color: #000;
+    }
 }
 
 .headerRight{
