@@ -5,25 +5,22 @@ import React, { useState } from 'react'
 import googleSvg from '@/app/assets/common/google.svg';
 import Image from 'next/image';
 import styles from './GoogleLoginButton.module.scss';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function GoogleLoginButton() {
 
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const redirect = searchParams.get("redirect") || "/";
+
     const login = useGoogleLogin({
       onSuccess: async (tokenResponse) => {
-        try {
-          const res = await fetch("/api/auth/google-login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              accessToken: tokenResponse.access_token
-            })
-          });
-      
-          const data = await res.json();
-          console.log("로그인 결과:", data);
-        } catch (e) {
-          console.error(e);
-        }
+        await fetch("/api/auth/google-login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ access_token: tokenResponse.access_token }),
+        });
+          router.push(redirect);
       },
         onError: (error) => {
           console.error('로그인에 실패하였습니다.:', error);

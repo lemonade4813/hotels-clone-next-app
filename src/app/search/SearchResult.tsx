@@ -73,8 +73,6 @@ export default function SearchResult({ keyword } : { keyword : string}) {
                                                 });
     const { name, location, city, grade, accomType } = criteria;        
     
-    
-    console.log(data?.result[0]._id)
 
     const filteredResults = useMemo(() => {
         if (!data?.result) return [];

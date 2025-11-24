@@ -10,12 +10,6 @@ import SuggestionMenu from "./components/SuggestionMemu";
 import Link from "next/link";
 import SearchOptionSelector from "./components/SearchOptionSelector";
 
-
-// const GoogleMap = dynamic(() => import("@/app/components/GoogleMap"), {
-//   ssr: false,
-// })
-
-
 export default function Home() {
   const roomtypes = 
                 [{src : '/resort.jpg', name : '리조트', keyword : 'resort'}, 
