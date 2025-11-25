@@ -9,6 +9,7 @@ import CommcenterImg from './common/CommcenterImage';
 import ReservationMenu from './ReservationMenu';
 
 export default function Header() {
+
   return (
     <header className={styles.header}>
         <div className={styles.headerLeft}>

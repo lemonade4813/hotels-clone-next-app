@@ -20,6 +20,7 @@ export default function GoogleLoginButton() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ access_token: tokenResponse.access_token }),
         });
+          localStorage.setItem('isLogined', JSON.stringify(true));
           router.push(redirect);
       },
         onError: (error) => {

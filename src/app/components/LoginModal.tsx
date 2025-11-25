@@ -8,6 +8,11 @@ export default function LoginModal() {
   const [isOpen, setIsOpen] = useState(false);
   const loginModalRef = useRef<HTMLDivElement | null>(null);
 
+  const [isLogined, setIsLogined] = useState(() => {
+    const saved = localStorage.getItem('isLogined');
+    return saved === 'true';
+  });
+  
   const toggleLoginModal = () => setIsOpen(!isOpen);
 
   const router = useRouter();
@@ -15,8 +20,17 @@ export default function LoginModal() {
   const navigateToLoginPage = () => {
     router.push('/login');
     setIsOpen(!isOpen);
-
   }
+
+  const handleLogout = async () => {
+    await fetch("/api/auth/logout", {
+      method: "POST",
+      credentials: "include",
+    });
+    setIsLogined(false);
+    localStorage.removeItem('isLogined');
+  };
+
 
   useEffect(() => {
     const handleOutsideClose = (e: MouseEvent) => {
@@ -28,9 +42,15 @@ export default function LoginModal() {
     return () => document.removeEventListener('click', handleOutsideClose)
   }, [isOpen])
 
+  
   return (
     <li className={styles.loginContainer}>
-      <p onClick={toggleLoginModal} className={styles.loginTrigger}>로그인</p>
+      <div>
+      {!isLogined ? 
+        <p onClick={toggleLoginModal} className={styles.loginTrigger}>로그인</p>
+      : <p onClick={handleLogout} className={styles.loginTrigger}>로그아웃</p>
+      }
+      </div>
       {isOpen && (
         <div ref={loginModalRef} className={styles.loginModal}>
           <p className={styles.loginInfoText}>회원은 로그인 시 전 세계 10만여 개 호텔 10% 이상 할인</p>

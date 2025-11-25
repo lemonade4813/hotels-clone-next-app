@@ -3,7 +3,10 @@ import { ObjectId } from 'mongodb';
 
 export const resolvers = {
     Query: {
-      result : async (_: any, args: { keyword?: string }) => {
+      result : async (_: any, args: { keyword?: string }, /* context : any*/)  => {
+
+        //if (!context.user) throw new Error("UNAUTHORIZED");
+        
         const client = await clientPromise;
         const db = client.db();
         const collection = db.collection('resort');
