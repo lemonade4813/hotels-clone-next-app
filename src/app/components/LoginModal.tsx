@@ -8,11 +8,19 @@ export default function LoginModal() {
   const [isOpen, setIsOpen] = useState(false);
   const loginModalRef = useRef<HTMLDivElement | null>(null);
 
+  // const [isLogined, setIsLogined] = useState(() => {
+  //   const saved = localStorage.getItem('isLogined');
+  //   return saved === 'true';
+  // });
+
   const [isLogined, setIsLogined] = useState(() => {
-    const saved = localStorage.getItem('isLogined');
-    return saved === 'true';
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('isLogined');
+      return saved === 'true';
+    }
+    return false;
   });
-  
+
   const toggleLoginModal = () => setIsOpen(!isOpen);
 
   const router = useRouter();
