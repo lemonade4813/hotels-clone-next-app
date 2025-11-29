@@ -1,0 +1,28 @@
+.container{
+    width : 560px;
+    background-color : #FFF;
+    text-align : center;
+    padding : 20px;
+}
+
+.periodSelectButton{
+    border-radius : 12px;
+    border : 1px solid #000;
+    background-color : transparent;
+    height : 30px;
+}
+
+.monthSelectButton{
+    border-radius : 12px;
+    border : 1px solid #000;
+    background-color : transparent;
+    height : 80px;
+    width: 80px;
+}
+
+.monthSelectWrapper{
+    display : flex;
+    flex-direction : column;
+    gap : 20px;
+    margin-bottom : 20px;
+}
