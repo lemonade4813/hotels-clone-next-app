@@ -5,9 +5,12 @@ import DecadeSelect from './DecadeSelect';
 
 interface DateSelectProps {
   onClose: () => void;
+  onSelectDate: (start: Date, end: Date) => void;
 }
 
-export default function DateSelect({ onClose }: DateSelectProps) {
+
+export default function DateSelect({ onClose, onSelectDate }: DateSelectProps) {
+
   const [tab, setTab] = useState<'calendar' | 'adjust' | null>('calendar');
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -47,7 +50,10 @@ export default function DateSelect({ onClose }: DateSelectProps) {
           날짜 조정 가능
         </button>
       </div>
-      {tab === 'calendar' ? <Calendar /> : <DecadeSelect/>}
+      {tab === 'calendar'
+    ? <Calendar onSelectDate={onSelectDate} />
+    : <DecadeSelect />
+  }
     </div>
   );
 }

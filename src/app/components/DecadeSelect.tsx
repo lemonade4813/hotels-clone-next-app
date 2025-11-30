@@ -47,7 +47,7 @@ export default function DecadeSelect() {
             <p>월을 여러 개 선택하실 수 있습니다.</p>
             <div style={{display : 'flex', justifyContent : 'space-between'}}>
                 {monthList.map(({month, year}) => 
-                    <button style={{ borderRadius : '12px', border : '1px solid #000', backgroundColor : 'transparent', width : '80px', height : '80px'}}>
+                    <button className={styles.monthSelectButtob}>
                         <Image src={CalendarSvg} alt="캘린더"/>
                         <p>{month} 월</p>
                         <p>{year}</p>

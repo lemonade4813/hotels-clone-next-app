@@ -12,7 +12,12 @@ interface SelectedDate {
   today: number;
 }
 
-export default function Calendar() {
+interface CalendarProps {
+  onSelectDate: (start: Date, end: Date) => void;
+}
+
+export default function Calendar({ onSelectDate }: CalendarProps) {
+
   type Action = { type: "PREV_MONTH" } | { type: "NEXT_MONTH" };
 
   const reducer = (selectedDate: SelectedDate, action: Action) => {
@@ -41,25 +46,58 @@ export default function Calendar() {
 
   const handleDayClick = (clicked: Date) => {
     setClickedDates((prev) => {
+      
+      // 첫 클릭 → 시작일로 저장
       if (prev.length === 0) return [clicked];
+  
+      // 두 번째 클릭 → 시작·종료 결정
       if (prev.length === 1) {
-        if (prev[0].getTime() === clicked.getTime()) return prev;
+        if (prev[0].getTime() === clicked.getTime()) return prev; // 같은 날짜 클릭 시 유지
         const a = prev[0];
         const b = clicked;
-        return a.getTime() <= b.getTime() ? [a, b] : [b, a];
+        const start = a.getTime() <= b.getTime() ? a : b;
+        const end = a.getTime() <= b.getTime() ? b : a;
+  
+        // 부모에게 날짜 전달
+        onSelectDate(start, end);
+  
+        return [start, end];
       }
+  
+      // 시작/끝 모두 선택된 상태에서 다시 클릭한 경우
       const times = prev.map((d) => d.getTime());
       const start = new Date(Math.min(...times));
       const end = new Date(Math.max(...times));
       const ct = clicked.getTime();
-
-      if (ct < start.getTime()) return [clicked, end];
-      if (ct > end.getTime()) return [start, clicked];
-
+  
+      // 범위 앞 확장: 기존 start 전에 클릭
+      if (ct < start.getTime()) {
+        const newRange = [clicked, end];
+        onSelectDate(newRange[0], newRange[1]);
+        return newRange;
+      }
+  
+      // 범위 뒤 확장: 기존 end 이후 클릭
+      if (ct > end.getTime()) {
+        const newRange = [start, clicked];
+        onSelectDate(newRange[0], newRange[1]);
+        return newRange;
+      }
+  
+      // 범위 내부 클릭 → 더 가까운 쪽으로 조정
       const distToStart = Math.abs(ct - start.getTime());
       const distToEnd = Math.abs(end.getTime() - ct);
-      if (distToStart <= distToEnd) return [clicked, end];
-      return [start, clicked];
+  
+      const newStart = distToStart <= distToEnd ? clicked : start;
+      const newEnd = distToEnd < distToStart ? clicked : end;
+  
+      const sorted = [
+        new Date(Math.min(newStart.getTime(), newEnd.getTime())),
+        new Date(Math.max(newStart.getTime(), newEnd.getTime())),
+      ];
+  
+      onSelectDate(sorted[0], sorted[1]);
+      return sorted;
     });
   };
 
