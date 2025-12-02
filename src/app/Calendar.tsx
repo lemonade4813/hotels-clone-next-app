@@ -46,7 +46,7 @@ export default function Calendar({ onSelectDate }: CalendarProps) {
 
   const handleDayClick = (clicked: Date) => {
     setClickedDates((prev) => {
-      
+
       // 첫 클릭 → 시작일로 저장
       if (prev.length === 0) return [clicked];
   
@@ -128,6 +128,7 @@ export default function Calendar({ onSelectDate }: CalendarProps) {
     if (rangeStart.getTime() === rangeEnd.getTime()) return formatKoreanDate(rangeStart);
     return `${formatKoreanDate(rangeStart)} → ${formatKoreanDate(rangeEnd)}`;
   })();
+  
 
   return (
     <div className={styles.container}>

@@ -1,39 +1,19 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import Calendar from '../Calendar';
 import styles from './DateSelect.module.css';
 import DecadeSelect from './DecadeSelect';
 
 interface DateSelectProps {
-  onClose: () => void;
   onSelectDate: (start: Date, end: Date) => void;
 }
 
 
-export default function DateSelect({ onClose, onSelectDate }: DateSelectProps) {
+export default function DateSelect({ onSelectDate }: DateSelectProps) {
 
   const [tab, setTab] = useState<'calendar' | 'adjust' | null>('calendar');
-  const wrapperRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
-        onClose();
-      }
-    };
-  
-    document.addEventListener('click', handleClickOutside, { capture: false });
-  
-    return () => {
-      document.removeEventListener('click', handleClickOutside, { capture: false });
-    };
-  }, [onClose]);
   return (
-    <div
-      ref={wrapperRef}
-      className={styles.container}
-      onClick={(e) => e.stopPropagation()}
-      onMouseDown={(e) => e.stopPropagation()}
-    >
+    <div className={styles.container}>
       <div className={styles.tabButtonWrapper}>
         <button 
           className={styles.tabButton} 
@@ -51,7 +31,17 @@ export default function DateSelect({ onClose, onSelectDate }: DateSelectProps) {
         </button>
       </div>
       {tab === 'calendar'
-    ? <Calendar onSelectDate={onSelectDate} />
+
+    ? <>
+      <Calendar onSelectDate={onSelectDate} /> :
+      <div className={styles.dateRangeAddWrapper}>
+          <button className={styles.dateRangeAddButton}>정확한 날짜</button>
+          <button className={styles.dateRangeAddButton}>±1일</button>
+          <button className={styles.dateRangeAddButton}>±2일</button>
+          <button className={styles.dateRangeAddButton}>±3일</button>
+          <button className={styles.dateRangeAddButton}>±7일</button>
+      </div>
+      </>
     : <DecadeSelect />
   }
     </div>

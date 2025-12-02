@@ -8,3 +8,35 @@
 .tabButtonWrapper{
     display: flex;
 }
+
+.closeDateSelectButton {
+    background-color : #191E3B;
+    height : 40px;
+    border : none;
+    border-radius : 20px;
+    width : 60px;
+    color : #FFF;
+    position: relative;
+    cursor : pointer;
+    display: block;
+    margin: 0 10px 10px auto;
+}
+
+.dateRangeAddWrapper{
+    display: flex;
+    gap : 10px;
+    margin-left : 20px;
+
+}
+
+.dateRangeAddButton{
+    height : 30px;
+    border : 1px solid #000;
+    border-radius : 20px;
+    min-width: 60px;
+    background-color: transparent;
+    line-height: 30px;
+    
+}
+
+

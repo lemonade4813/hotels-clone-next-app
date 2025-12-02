@@ -21,8 +21,11 @@
 }
 
 .monthSelectWrapper{
+    margin-top : 20px;
     display : flex;
     flex-direction : column;
     gap : 20px;
     margin-bottom : 20px;
+    padding-top: 20px;
+    border-top : 1px solid #DFE0E4;
 }

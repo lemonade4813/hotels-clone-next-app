@@ -29,9 +29,9 @@ export default function DecadeSelect() {
 
   return (
     <div className={styles.container}>
-        <div className={styles.monthSelectWrapper}>
+        <div style={{display : 'flex', flexDirection : 'column', gap : '20px'}}>
             <p>원하시는 숙박 기간을 선택해 주세요.</p>
-            <div>
+            <div style={{display : 'flex', gap : '20px', justifyContent : 'center'}}>
                 <button className={styles.periodSelectButton}>1박</button>
                 <button className={styles.periodSelectButton}>2~3박</button>
                 <button className={styles.periodSelectButton}>4~5박</button> 
@@ -47,7 +47,7 @@ export default function DecadeSelect() {
             <p>월을 여러 개 선택하실 수 있습니다.</p>
             <div style={{display : 'flex', justifyContent : 'space-between'}}>
                 {monthList.map(({month, year}) => 
-                    <button className={styles.monthSelectButtob}>
+                    <button className={styles.monthSelectButton}>
                         <Image src={CalendarSvg} alt="캘린더"/>
                         <p>{month} 월</p>
                         <p>{year}</p>

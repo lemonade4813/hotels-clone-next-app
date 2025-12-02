@@ -1,12 +1,31 @@
 "use client"
 
-import React, { useState } from 'react'
-import styles from "@/app/Home.module.scss";
+import React, { useEffect, useRef, useState } from 'react'
+import styles from "@/app/components/SearchOptionSelector.module.css";
 import Image from 'next/image';
 import calendar from "@/app/assets/calendar.svg";
 import DateSelect from './DateSelect';
 
 export default function SearchOptionSelector() {
+
+    const wrapperRef = useRef<HTMLDivElement>(null);
+
+    const handleClose = () => setOpen(false);
+
+    useEffect(() => {
+      const handleClickOutside = (e: MouseEvent) => {
+        if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+            handleClose();
+        }
+      };
+    
+      document.addEventListener('click', handleClickOutside, { capture: false });
+    
+      return () => {
+        document.removeEventListener('click', handleClickOutside, { capture: false });
+      };
+    }, [handleClose]);
+
     const [open, setOpen] = useState(false);
 
     const [selectedRange, setSelectedRange] = useState<{
@@ -20,35 +39,44 @@ export default function SearchOptionSelector() {
         return `${m}월 ${day}일`;
     };
 
-    const displayText =
-        selectedRange.start && selectedRange.end
-            ? `${formatDate(selectedRange.start)} - ${formatDate(selectedRange.end)}`
-            : `언제 떠나세요?`;
-
     return (
         <div
+            ref={wrapperRef}
             onClick={() => setOpen(prev => !prev)}
-            className={styles.bannerCriteriaItemContainer}
+            className={styles.searchOptionSelectorContainer}
         >
             <Image src={calendar} alt="달력 이미지" />
             {selectedRange.start && selectedRange.end ? (
              <div style={{paddingLeft : '12px'}}>
-                <p>언제 떠나세요?</p>
-                <p>{formatDate(selectedRange.start)} - {formatDate(selectedRange.end)}</p>
+                <p> 언제 떠나세요?</p>
+                <p>{formatDate(selectedRange.start)} 
+                - {formatDate(selectedRange.end)}
+                </p>
              </div>   
             ) : (
-                <p>언제 떠나세요?</p>
+                <p style={{paddingLeft : '12px'}}>언제 떠나세요?</p>
             )}
 
-            {open && (
-                <div style={{ position: 'absolute' }}>
-                    <DateSelect
-                        onClose={() => setOpen(false)}
-                        onSelectDate={(start, end) =>
-                            setSelectedRange({ start, end })
-                        }
-                    />
-                </div>
+        {open && (
+            <div
+                className={styles.content}
+                onClick={(e) => e.stopPropagation()}
+            >
+                <DateSelect
+                    onSelectDate={(start, end) => {
+                    setTimeout(() => setSelectedRange({ start, end }), 0);
+                }}
+                />
+                <button
+                    className={styles.closeDateSelectButton}
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        setOpen(false);
+                    }}
+                >
+                닫기
+                </button>
+            </div>
             )}
         </div>
     );
