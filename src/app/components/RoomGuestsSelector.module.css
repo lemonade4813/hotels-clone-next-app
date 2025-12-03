@@ -1,0 +1,82 @@
+.roomGuestsContainer{
+    display: flex;
+    align-items: center;
+    background-color: #FFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding : 16px;
+    flex : 1;
+    height: 48px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.plusMinusButton{
+    border : 1px solid #000;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 999px;
+}
+
+.plusMinusButtonWrapper{
+    display : flex;
+    gap : 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.roomGuestsInfoWrapper{
+    position : absolute;
+    top : 0;
+    left: 0;
+    width : 400px;
+    background-color : #FFF;
+    overflow-y : auto;
+    border-radius : 20px;
+    padding : 20px;
+    max-height: 800px;
+    z-index: 999;
+}
+
+.confirmButton{
+    width : 60px;
+    border : none;
+    background-color : #191E3B;
+    color : #FFF;
+    border-radius : 20px;
+    height : 30px;
+    font-size : 20px;
+}
+
+.bottomWrapper{
+    margin-top: 40px;
+    display:  flex;
+    justify-content: space-between;
+}
+
+.roomGuestsItemWrapper{
+    display : flex;
+    flex-direction : column;
+    gap : 20px;
+}
+
+.roomGuestsCountsWrapper{
+    display : flex;
+    justify-content : space-between;
+}
+
+.roomDeleteButton{
+    margin-top : 10px;
+    color : #1668E3;
+    display : block;
+    text-align : right;
+}
+
+.roomAddButton{
+    margin-top : 10px;
+    color : #1668E3;
+    display : block;
+    text-align : right;
+}

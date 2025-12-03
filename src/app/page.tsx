@@ -9,6 +9,7 @@ import NoticeDiscount from "./components/NoticeDiscount";
 import SuggestionMenu from "./components/SuggestionMemu";
 import Link from "next/link";
 import SearchOptionSelector from "./components/SearchOptionSelector";
+import RoomGuestsSelector from "./components/RoomGuestsSelector";
 
 export default function Home() {
   const roomtypes = 
@@ -41,13 +42,14 @@ export default function Home() {
                 </div>
               </div>
               <SearchOptionSelector/>
-              <div className={styles.bannerCriteriaItemContainer}>
+              {/* <div className={styles.bannerCriteriaItemContainer}>
                 <Image src={person} alt="인원 수 이미지" />
                 <div className={styles.criteriaField}>
                   <p>인원 수</p>
                   <p>객실 1개 2명</p>
                 </div>
-              </div>
+              </div> */}
+              <RoomGuestsSelector/>
               <button className={styles.searchButton}>검색</button>
             </div>
           </div>
