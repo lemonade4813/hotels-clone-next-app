@@ -1,0 +1,73 @@
+@use '@/app/common';
+
+// $width 기본값을 100%로 설정하여 파라미터 없이도 사용 가능하게 만듭니다.
+@mixin container($width: 100%) {
+  border-radius: 16px;
+  background-color: common.$benefit-notice-background;
+  height: 80px;
+  width: $width;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* 기본 단독 배치 시 (100% 영역 사용) */
+.container {
+  @include container(100%);
+}
+
+/* flex 컨테이너 내부 배치 시 (남은 영역 flex: 1 차지) */
+.isFlexible {
+  width: auto;     /* 기존 width: 100% 무효화 */
+  flex: 1 1 0%;
+  min-width: 0;   /* flex 자식 요소의 overflow 방지 */
+}
+
+/* 기존 컨테이너 스타일 유지 (필요 시) */
+.rewardContainer {
+  @include container(800px);
+}
+
+.discountContainer {
+  @include container(1200px);
+}
+
+@media screen and (max-width: 767px) {
+  .container,
+  .rewardContainer,
+  .discountContainer {
+    display: none;
+  }
+}
+
+.text {
+  color: #fff;
+  flex: 1;
+}
+
+.button {
+  background-color: common.$common-button-color;
+  width: 120px;
+  border-radius: 16px;
+  border: none;
+  color: #fff;
+  height: 36px;
+}
+
+.rewardDetailButton {
+  width: 120px;
+  border-radius: 16px;
+  background-color: transparent;
+  color: #fff;
+  height: 36px;
+  border: none;
+  margin-left: 16px;
+
+  &:hover {
+    background-color: #676a7d;
+  }
+}
